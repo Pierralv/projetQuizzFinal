@@ -1,0 +1,14 @@
+#maven
+# on ne traite pas le dossier target de maven
+target/
+#ide
+# fichier de configuration d'eclipse
+.classpath
+.project
+.settings/
+# fichier de configuration de vscode
+.vscode/
+# System files
+.DS_Store
+Thumbs.db
+_MACOSX
