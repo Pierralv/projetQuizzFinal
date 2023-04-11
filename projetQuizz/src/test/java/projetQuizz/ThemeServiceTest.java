@@ -43,18 +43,22 @@ public class ThemeServiceTest {
 		themeService.createOrUpdate(t);
 		compteSrv.createOrUpdate(compte1);
 		questionService.createOrUpdate(q);
-		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
-		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
-		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
-		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		Reponse rep1 = new Reponse("enonce de la reponse", false, q);
+		Reponse rep2 = new Reponse("enonce de la reponse", false, q);
+		Reponse rep3 = new Reponse("enonce de la reponse", false, q);
+		Reponse rep4 = new Reponse("enonce de la reponse", false, q);
+		reponseService.createOrUpdate(rep1);
+		reponseService.createOrUpdate(rep2);
+		reponseService.createOrUpdate(rep3);
+		reponseService.createOrUpdate(rep4);
 		assertNotNull(questionService.getById(q.getId()));
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
-		System.out.println(questionService.getIdWithReponses(1L));	
+		System.out.println(questionService.getIdWithReponses(q.getId()));
 		themeService.createOrUpdate(t);
 		System.out.println(themeService.getAll());
-		System.out.println(themeService.getById(1L));
-		System.out.println(themeService.getIdWithQuestions(1L));
+		System.out.println(themeService.getById(t.getId()));
+		System.out.println(themeService.getIdWithQuestions(t.getId()));
 		
 		themeService.delete(t);
 	}

@@ -33,7 +33,7 @@ public class ReponseServiceTest {
 		System.out.println(reponseService.getAll());
 
 		System.out.println("------------getById------------");
-		System.out.println(reponseService.getById(1L));
+		System.out.println(reponse1.getId());
 
 		System.out.println("------------getByEnonce------------");
 		System.out.println(reponseService.getByEnonce("proposition2SurUnFilm"));
