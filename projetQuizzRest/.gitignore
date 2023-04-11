@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/target/
+=======
 #maven
 # on ne traite pas le dossier target de maven
 target/
@@ -13,3 +16,4 @@ bin/
 .DS_Store
 Thumbs.db
 _MACOSX
+>>>>>>> c2b21fac3bd08883b695188f83a740a4b6691dd5
