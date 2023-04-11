@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projetQuizz.entities.Theme;
+import projetQuizz.repositories.QuestionRepository;
 import projetQuizz.repositories.ThemeRepository;
 import projetQuizz.exceptions.ThemeException;
 
@@ -13,6 +14,8 @@ import projetQuizz.exceptions.ThemeException;
 public class ThemeService {
 	@Autowired
 	private ThemeRepository themeRepo;
+	@Autowired
+	private QuestionRepository questionRepo;
 	
 	public List<Theme> getAll() {
 		return themeRepo.findAll();
@@ -41,6 +44,8 @@ public class ThemeService {
 	}
 	
 	public void deleteById(Long id) {
+		Theme t = getById(id);
+		questionRepo.deleteByTheme(t);
 		themeRepo.delete(getById(id));
 	}
 	
