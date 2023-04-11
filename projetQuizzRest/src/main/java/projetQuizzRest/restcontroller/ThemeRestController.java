@@ -1,4 +1,4 @@
-package projetQuizzRest.restController;
+package projetQuizzRest.restcontroller;
 
 import java.util.List;
 

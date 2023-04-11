@@ -56,7 +56,7 @@ public class CompteService {
 		if(compte.getEmail() == null || compte.getEmail().isBlank()) {
 			throw new CompteException("email obligatoire");
 		}
-		if(compte.getPseudo() == null || compte.getPrenom().isBlank()) {
+		if(compte.getPseudo() == null || compte.getPseudo().isBlank()) {
 			throw new CompteException("pseudo invalide");
 		}
 		if(compte.getRole() == null) {
