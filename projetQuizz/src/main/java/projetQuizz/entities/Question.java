@@ -54,6 +54,20 @@ public class Question {
 		this.enonceQuestion = enonceQuestion;
 		this.theme = theme;
 	}
+	
+	
+
+	public Compte getCreateur() {
+		return createur;
+	}
+
+
+
+	public void setCreateur(Compte createur) {
+		this.createur = createur;
+	}
+
+
 
 	public Long getId() {
 		return id;
