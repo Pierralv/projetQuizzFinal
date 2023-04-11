@@ -24,10 +24,10 @@ public class CompteServiceTest {
 	@Commit
 	void initCompte() {
 		compteSrv.createOrUpdate(new Compte("nom", "prenom", "pseudo", "avatar", "email", "mdp", Role.ROLE_ADMIN));
-		//System.out.println("get by id:");
-		//System.out.println(compteSrv.getById(1L));
-		//System.out.println("get all");
-		//System.out.println(compteSrv.getAll());
+		System.out.println("get by id:");
+		System.out.println(compteSrv.getById(1L));
+		System.out.println("get all");
+		System.out.println(compteSrv.getAll());
 	}
 	
 	

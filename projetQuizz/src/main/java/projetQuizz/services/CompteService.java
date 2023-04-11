@@ -55,6 +55,7 @@ public class CompteService {
 		if(compte.getRole() == null) {
 			throw new CompteException("problème role");
 		}
+		compteRepo.save(compte);
 	}
 	
 	
