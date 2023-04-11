@@ -2,12 +2,17 @@ package projetQuizz.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import projetQuizz.entities.Compte;
 import projetQuizz.exceptions.CompteException;
 import projetQuizz.repositories.CompteRepository;
 
+@Service
 public class CompteService {
 	
+	@Autowired
 	private CompteRepository compteRepo;
 	
 	public List<Compte> getAll(){
@@ -19,6 +24,15 @@ public class CompteService {
 			throw new CompteException("id obligatoire");
 		}
 		return compteRepo.findById(id).orElseThrow(() -> {
+			throw new CompteException("id inconnu");
+		});
+	}
+	
+	public Compte getByIdWithQuestions (Long id) {
+		if(id ==null) {
+			throw new CompteException("id obligatoire");
+		}
+		return compteRepo.findByIdFetchQuestions(id).orElseThrow(() -> {
 			throw new CompteException("id inconnu");
 		});
 	}
