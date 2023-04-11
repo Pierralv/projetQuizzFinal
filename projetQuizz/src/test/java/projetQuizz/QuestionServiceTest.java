@@ -39,8 +39,8 @@ class QuestionServiceTest {
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
 		System.out.println(questionService.getIdWithReponses(1L));
-		questionService.delete(q);
-		questionService.deleteById(1L);
+//		questionService.delete(q);
+//		questionService.deleteById(1L);
 	}
 
 //	@Disabled

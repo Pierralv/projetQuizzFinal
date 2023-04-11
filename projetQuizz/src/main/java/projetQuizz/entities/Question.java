@@ -37,6 +37,17 @@ public class Question {
 	public Question() {
 
 	}
+	
+	
+
+	public Question(String enonceQuestion, Theme theme, Compte createur) {
+		super();
+		this.enonceQuestion = enonceQuestion;
+		this.theme = theme;
+		this.createur = createur;
+	}
+
+
 
 	public Question(String enonceQuestion, Theme theme) {
 		super();
