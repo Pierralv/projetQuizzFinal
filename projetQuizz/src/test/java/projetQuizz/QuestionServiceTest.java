@@ -20,7 +20,7 @@ import projetQuizz.services.ReponseService;
 
 @SpringJUnitConfig(JpaConfig.class)
 @Transactional
-@Rollback
+//@Rollback
 class QuestionServiceTest {
 	
 	@Autowired
@@ -36,6 +36,7 @@ class QuestionServiceTest {
 	}
 	
 	@Test
+	@Commit
 	void initQuestionReponse() {
 		questionService.createOrUpdate(q);
 		assertNotNull(questionService.getById(q.getId()));

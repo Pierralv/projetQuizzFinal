@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import projetQuizz.entities.Compte;
 import projetQuizz.exceptions.CompteException;
 import projetQuizz.repositories.CompteRepository;
+import projetQuizz.repositories.QuestionRepository;
 
 @Service
 public class CompteService {
 	
 	@Autowired
 	private CompteRepository compteRepo;
+	
+	@Autowired
+	private QuestionRepository questionRepo;
 	
 	public List<Compte> getAll(){
 		return compteRepo.findAll();
@@ -42,7 +46,10 @@ public class CompteService {
 	}
 	
 	public void deleteById(Long id) {
-		compteRepo.delete(getById(id));
+		Compte c = getById(id);
+		questionRepo.setCreateurToNullByCreateur(c);
+		compteRepo.deleteById(id);
+		
 	}
 	
 	public void createOrUpdate(Compte compte) {
