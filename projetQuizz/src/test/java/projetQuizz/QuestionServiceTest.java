@@ -2,6 +2,8 @@ package projetQuizz;
 
 import javax.transaction.Transactional;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Commit;
@@ -10,7 +12,9 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import projetQuizz.config.JpaConfig;
 import projetQuizz.entities.Question;
+import projetQuizz.entities.Reponse;
 import projetQuizz.services.QuestionService;
+import projetQuizz.services.ReponseService;
 
 @SpringJUnitConfig(JpaConfig.class)
 @Transactional
@@ -18,34 +22,48 @@ import projetQuizz.services.QuestionService;
 class QuestionServiceTest {
 	
 	@Autowired
-	QuestionService questionService;
+	QuestionService questionService;	
+	@Autowired 
+	ReponseService reponseService;
+	
+	private Question q = new Question("énoncéé", null);
 	
 	
 	@Test
-	void initQuestion() {
-		questionService.createOrUpdate(new Question("énoncéé", null));		
-	}
-	
-//	@Test
-//	@Commit
-//	void deleteQuestion() {
-//		questionService.deleteById(1L);
-//	}
-	
-	@Test
-	@Commit
-	void getAllQuestion() {
+	void initQuestionReponse() {
+		questionService.createOrUpdate(q);	
+		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
 		System.out.println(questionService.getAll());
-	}
-	
-	@Test
-	void getByIdQuestion() {
-		System.out.println(questionService.getById(1L));
-	}
-	
-	@Test
-	void deleteQuestion() {
+		System.out.println(reponseService.getAll());
+		System.out.println(questionService.getIdWithReponses(1L));
+		questionService.delete(q);
 		questionService.deleteById(1L);
 	}
+
+//	@Disabled
+//	@Commit
+//	@Test
+//	void getAllQuestion() {
+//		System.out.println(questionService.getAll());
+//	}
+//
+//	@Commit
+//	@Test
+//	void getByIdQuestion() {
+//		System.out.println(questionService.getAll());
+//	}
+//	
+////	@Test
+////	void deleteQuestion() {
+////		questionService.deleteById(1L);
+////	}
+//	
+//	@Test
+//	void getByIdReponse() {
+//		System.out.println(questionService.getIdWithReponses(1L));
+//	}
 
 }

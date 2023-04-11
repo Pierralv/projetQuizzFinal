@@ -16,7 +16,7 @@ public class ReponseService {
     @Autowired
     private ReponseRepository reponseRepo;
 
-    private List<Reponse> getAll(){
+    public List<Reponse> getAll(){
         return reponseRepo.findAll();
     }
 
