@@ -1,6 +1,7 @@
 #maven
 # on ne traite pas le dossier target de maven
 target/
+bin/
 #ide
 # fichier de configuration d'eclipse
 .classpath

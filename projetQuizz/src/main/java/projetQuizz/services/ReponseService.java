@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import projetQuizz.entities.Question;
 import projetQuizz.entities.Reponse;
 import projetQuizz.exceptions.ReponseException;
 import projetQuizz.repositories.ReponseRepository;
@@ -29,31 +28,28 @@ public class ReponseService {
 		});
 	}
 
-    public void delete(Reponse reponse) {
-		deleteById(reponse.getId());
-	}
+	// PAS BESOIN DE SUPPRIMER DES REPONSES SEULES
+    // public void delete(Reponse reponse) {
+	// 	deleteById(reponse.getId());
+	// }
 
-	public void deleteById(Long id) {
-		reponseRepo.delete(getById(id));
-	}
+	// public void deleteById(Long id) {
+	// 	reponseRepo.delete(getById(id));
+	// }
 
-	// creation et mise a ensemble ou pas???
 	public void createOrUpdate(Reponse reponse) {
-		if (reponse.getEnonce() == null || reponse.getEnonce().isBlank()) {
-			throw new ReponseException("énoncé obligatoire");
+		if (reponse.getEnonceReponse() == null || reponse.getEnonceReponse().isBlank()) {
+			throw new ReponseException("Enoncé obligatoire");
 		}
 		reponseRepo.save(reponse);
 	}
 
-    List<Reponse> getByEnonce(String enonce){
-        return reponseRepo.findByEnonce(enonce);
+    public List<Reponse> getByEnonce(String enonce){
+        return reponseRepo.findByEnonceReponse(enonce);
     }
 
-    List<Reponse> getByEnonceContaining(String enonce){
-        return reponseRepo.findByEnonceContaining(enonce);
+    public List<Reponse> getByEnonceContaining(String enonce){
+        return reponseRepo.findByEnonceReponseContaining(enonce);
     }
 
-    List<Reponse> deleteByQuestion(Question question){
-        return null;
-    }
 }

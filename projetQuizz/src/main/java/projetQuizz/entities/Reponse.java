@@ -18,7 +18,7 @@ public class Reponse {
     @Column(name = "reponse_id")
     private Long id;
     @Column(name = "reponse_enonce")
-    private String enonce;
+    private String enonceReponse;
     @Column(name = "bonne_reponse")
     private boolean bonneReponse;
     @ManyToOne
@@ -29,12 +29,18 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse(String enonce, boolean bonneReponse, Question question) {
-        this.enonce = enonce;
+    public Reponse(String enonceReponse, boolean bonneReponse) {
+        this.enonceReponse = enonceReponse;
+        this.bonneReponse = bonneReponse;
+    }
+
+    public Reponse(String enonceReponse, boolean bonneReponse, Question question) {
+        this.enonceReponse = enonceReponse;
         this.bonneReponse = bonneReponse;
         this.question = question;
     }
 
+    
 
     public Long getId() {
         return id;
@@ -42,17 +48,23 @@ public class Reponse {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getEnonce() {
-        return enonce;
+    public String getEnonceReponse() {
+        return enonceReponse;
     }
-    public void setEnonce(String enonce) {
-        this.enonce = enonce;
+    public void setEnonceReponse(String enonceReponse) {
+        this.enonceReponse = enonceReponse;
     }
     public boolean isBonneReponse() {
         return bonneReponse;
     }
     public void setBonneReponse(boolean bonneReponse) {
         this.bonneReponse = bonneReponse;
+    }
+    public Question getQuestion() {
+        return question;
+    }
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
     @Override
@@ -79,5 +91,7 @@ public class Reponse {
             return false;
         return true;
     }
+    
+
     
 }
