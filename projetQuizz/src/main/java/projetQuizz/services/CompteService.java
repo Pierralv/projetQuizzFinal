@@ -23,6 +23,15 @@ public class CompteService {
 		});
 	}
 	
+	public Compte getByIdWithQuestions (Long id) {
+		if(id ==null) {
+			throw new CompteException("id obligatoire");
+		}
+		return compteRepo.findByIdFetchQuestions(id).orElseThrow(() -> {
+			throw new CompteException("id inconnu");
+		});
+	}
+	
 	public void delete(Compte compte) {
 		deleteById(compte.getId());
 	}

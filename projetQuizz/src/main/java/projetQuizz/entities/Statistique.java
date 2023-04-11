@@ -1,14 +1,21 @@
 package projetQuizz.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Statistique {
+	@Column(nullable = true)
 	private int scoreMax;
+	@Column(nullable = true)
 	private int scoreMoyen;
+	@Column(nullable = true)
 	private String themePref;
+	@Column(nullable = true)
 	private double tempsMoyenReponse;
+	@Column(nullable = true)
 	private int partiesGagnees;
+	@Column(nullable = true)
 	private double ratioVainqueur;
 	
 	
