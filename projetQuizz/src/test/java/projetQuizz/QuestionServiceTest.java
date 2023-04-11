@@ -1,5 +1,7 @@
 package projetQuizz;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.AfterAll;
@@ -28,10 +30,15 @@ class QuestionServiceTest {
 	
 	private Question q = new Question("énoncéé", null);
 	
+	@Test
+	void injectionQuestionServiceTest() {
+		assertNotNull(questionService);
+	}
 	
 	@Test
 	void initQuestionReponse() {
-		questionService.createOrUpdate(q);	
+		questionService.createOrUpdate(q);
+		assertNotNull(questionService.getById(q.getId()));
 		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
 		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
 		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
@@ -39,6 +46,7 @@ class QuestionServiceTest {
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
 		System.out.println(questionService.getIdWithReponses(1L));
+		
 //		questionService.delete(q);
 //		questionService.deleteById(1L);
 	}
