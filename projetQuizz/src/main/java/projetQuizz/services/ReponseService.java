@@ -39,7 +39,7 @@ public class ReponseService {
 
 	public void createOrUpdate(Reponse reponse) {
 		if (reponse.getEnonceReponse() == null || reponse.getEnonceReponse().isBlank()) {
-			throw new ReponseException("Enoncé obligatoire");
+			throw new ReponseException("Enonce obligatoire");
 		}
 		reponseRepo.save(reponse);
 	}
