@@ -26,9 +26,9 @@ class QuestionServiceTest {
 	@Autowired
 	QuestionService questionService;	
 	@Autowired 
-	ReponseService reponseService;
+	ReponseService réponseService;
 	
-	private Question q = new Question("énoncéé", null);
+	private Question q = new Question("enoncee", null);
 	
 	@Test
 	void injectionQuestionServiceTest() {
@@ -40,12 +40,12 @@ class QuestionServiceTest {
 	void initQuestionReponse() {
 		questionService.createOrUpdate(q);
 		assertNotNull(questionService.getById(q.getId()));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
+		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
+		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
+		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
 		System.out.println(questionService.getAll());
-		System.out.println(reponseService.getAll());
+		System.out.println(réponseService.getAll());
 		System.out.println(questionService.getIdWithReponses(1L));	
 		questionService.deleteById(1L);
 	}

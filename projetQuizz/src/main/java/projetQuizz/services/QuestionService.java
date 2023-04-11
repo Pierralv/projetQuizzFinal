@@ -43,7 +43,7 @@ public class QuestionService {
 	
 	public void createOrUpdate(Question question) {
 		if (question.getEnonceQuestion() == null || question.getEnonceQuestion().isBlank()) {
-			throw new QuestionException("Enoncé obligatoire");
+			throw new QuestionException("Enonce obligatoire");
 		}
 		questionRepo.save(question);
 	}

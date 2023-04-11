@@ -35,7 +35,7 @@ public class ThemeServiceTest {
 	
 	private Compte compte1 = new Compte("nom", "prenom", "pseudo", "avatar", "email", "mdp", Role.ROLE_ADMIN);
 	private Theme t = new Theme("nom");
-	private Question q = new Question("énoncé", t, compte1);
+	private Question q = new Question("enonce", t, compte1);
 
 	@Commit
 	@Test
@@ -43,10 +43,10 @@ public class ThemeServiceTest {
 		themeService.createOrUpdate(t);
 		compteSrv.createOrUpdate(compte1);
 		questionService.createOrUpdate(q);
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		assertNotNull(questionService.getById(q.getId()));
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
