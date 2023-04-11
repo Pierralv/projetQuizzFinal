@@ -16,7 +16,7 @@ public class ReponseService {
     @Autowired
     private ReponseRepository reponseRepo;
 
-    private List<Reponse> getAll(){
+    public List<Reponse> getAll(){
         return reponseRepo.findAll();
     }
 
@@ -37,20 +37,19 @@ public class ReponseService {
 		reponseRepo.delete(getById(id));
 	}
 
-	// creation et mise a ensemble ou pas???
 	public void createOrUpdate(Reponse reponse) {
-		if (reponse.getEnonce() == null || reponse.getEnonce().isBlank()) {
-			throw new ReponseException("énoncé obligatoire");
+		if (reponse.getEnonceReponse() == null || reponse.getEnonceReponse().isBlank()) {
+			throw new ReponseException("Enoncé obligatoire");
 		}
 		reponseRepo.save(reponse);
 	}
 
     List<Reponse> getByEnonce(String enonce){
-        return reponseRepo.findByEnonce(enonce);
+        return reponseRepo.findByEnonceReponse(enonce);
     }
 
     List<Reponse> getByEnonceContaining(String enonce){
-        return reponseRepo.findByEnonceContaining(enonce);
+        return reponseRepo.findByEnonceReponseContaining(enonce);
     }
 
     List<Reponse> deleteByQuestion(Question question){

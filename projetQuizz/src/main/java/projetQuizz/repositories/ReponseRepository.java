@@ -2,20 +2,14 @@ package projetQuizz.repositories;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 
-import projetQuizz.entities.Question;
 import projetQuizz.entities.Reponse;
 
 public interface ReponseRepository extends JpaRepository<Reponse, Long>{
-    List<Reponse> findByEnonce(String enonce);
+    List<Reponse> findByEnonceReponse(String enonceReponse);
 
-	List<Reponse> findByEnonceContaining(String enonce);
+	List<Reponse> findByEnonceReponseContaining(String enonceReponse);
     
-    @Transactional
-	@Modifying
-	void deleteByQuestion(Question question);
+	// void deleteByQuestion(Question question);
 }
