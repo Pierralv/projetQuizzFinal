@@ -17,5 +17,5 @@ public interface ReponseRepository extends JpaRepository<Reponse, Long>{
     
     @Transactional
     @Modifying
-	public List<Reponse> findByQuestion(Question question);
+	public void deleteByQuestion(Question question);
 }
