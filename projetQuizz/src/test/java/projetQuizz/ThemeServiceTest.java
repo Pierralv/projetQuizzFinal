@@ -23,6 +23,7 @@ import projetQuizz.services.ThemeService;
 @SpringJUnitConfig(JpaConfig.class)
 @Transactional
 public class ThemeServiceTest {	
+	
 	@Autowired
 	ThemeService themeService;
 	@Autowired
@@ -55,7 +56,7 @@ public class ThemeServiceTest {
 		System.out.println(themeService.getById(1L));
 		System.out.println(themeService.getIdWithQuestions(1L));
 		
-		themeService.deleteById(1L);
+		themeService.delete(t);
 	}
 
 }

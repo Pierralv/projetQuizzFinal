@@ -24,6 +24,6 @@ public interface ReponseRepository extends JpaRepository<Reponse, Long>{
     
     @Transactional
     @Modifying
-    @Query("delete r from Reponse r where r.question.theme=:theme ")
+    @Query("delete from Reponse r where r.question in (select q from Question q where q.theme=:theme) ")
     public void deleteReponseByTheme(@Param("theme") Theme theme);
 }
