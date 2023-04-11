@@ -2,12 +2,17 @@ package projetQuizz.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import projetQuizz.entities.Compte;
 import projetQuizz.exceptions.CompteException;
 import projetQuizz.repositories.CompteRepository;
 
+@Service
 public class CompteService {
 	
+	@Autowired
 	private CompteRepository compteRepo;
 	
 	public List<Compte> getAll(){
