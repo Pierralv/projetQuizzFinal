@@ -31,7 +31,7 @@ public class CompteServiceTest {
 	@Autowired
 	ReponseService reponseService;
 	
-	private Question q = new Question("énoncéé", null);
+	private Question q = new Question("enoncee", null);
 	
 	@Test
 	@Commit
@@ -39,10 +39,10 @@ public class CompteServiceTest {
 		Compte compte1 = new Compte("nom", "prenom", "pseudo", "avatar", "email", "mdp", Role.ROLE_ADMIN);
 		compteSrv.createOrUpdate(compte1);
 		questionService.createOrUpdate(q);	
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
-		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		q.setCreateur(compte1);
 		compteSrv.createOrUpdate(compte1);
 		System.out.println("get by id:");

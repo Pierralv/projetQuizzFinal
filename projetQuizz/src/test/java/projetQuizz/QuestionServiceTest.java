@@ -26,7 +26,7 @@ class QuestionServiceTest {
 	@Autowired
 	QuestionService questionService;	
 	@Autowired 
-	ReponseService réponseService;
+	ReponseService reponseService;
 	
 	private Question q = new Question("enoncee", null);
 	
@@ -40,13 +40,13 @@ class QuestionServiceTest {
 	void initQuestionReponse() {
 		questionService.createOrUpdate(q);
 		assertNotNull(questionService.getById(q.getId()));
-		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
-		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
-		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
-		réponseService.createOrUpdate(new Reponse("enonce de la réponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
+		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		System.out.println(questionService.getAll());
-		System.out.println(réponseService.getAll());
-		System.out.println(questionService.getIdWithReponses(1L));	
+		System.out.println(reponseService.getAll());
+		// System.out.println(questionService.getIdWithReponses(1L));	
 		questionService.deleteById(1L);
 	}
 
