@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import projetQuizz.entities.Question;
 import projetQuizz.exceptions.QuestionException;
 import projetQuizz.repositories.QuestionRepository;
+import projetQuizz.repositories.ReponseRepository;
 
 @Service
 public class QuestionService {
 
 	@Autowired
 	private QuestionRepository questionRepo;
+	@Autowired
+	private ReponseRepository reponseRepo;
 	
 	public List<Question> getAll(){
 		return questionRepo.findAll();
@@ -33,7 +36,9 @@ public class QuestionService {
 	}
 	
 	public void deleteById(Long id) {
-		questionRepo.delete(getById(id));
+		Question q = getById(id);
+		reponseRepo.deleteByQuestion(q);
+		questionRepo.deleteById(id);
 	}
 	
 	public void createOrUpdate(Question question) {
@@ -45,6 +50,15 @@ public class QuestionService {
 	
 	public List<Question> getByCreateur (String createur){
 		return questionRepo.findByCreateurContaining(createur);
+	}
+	
+	public Question getIdWithReponses(Long id) {
+		if (id == null) {
+			throw new QuestionException("id obligatoire");
+		}
+		return questionRepo.findByIdFetchReponses(id).orElseThrow(() -> {
+			throw new QuestionException("id inconnu");
+		});
 	}
 	
 }
