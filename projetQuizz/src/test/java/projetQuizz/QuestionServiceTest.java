@@ -46,11 +46,10 @@ class QuestionServiceTest {
 		reponseService.createOrUpdate(new Reponse("énoncé de la réponse", false, q));
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
-		System.out.println(questionService.getIdWithReponses(1L));
-		
-//		questionService.delete(q);
-//		questionService.deleteById(1L);
+		System.out.println(questionService.getIdWithReponses(1L));	
+		questionService.deleteById(1L);
 	}
+
 
 //	@Disabled
 //	@Commit

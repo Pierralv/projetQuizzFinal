@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projetQuizz.entities.Question;
 import projetQuizz.entities.Theme;
-import projetQuizz.repositories.QuestionRepository;
-import projetQuizz.repositories.ThemeRepository;
 import projetQuizz.exceptions.ThemeException;
+import projetQuizz.repositories.QuestionRepository;
+import projetQuizz.repositories.ReponseRepository;
+import projetQuizz.repositories.ThemeRepository;
 
 @Service
 public class ThemeService {
@@ -16,6 +18,8 @@ public class ThemeService {
 	private ThemeRepository themeRepo;
 	@Autowired
 	private QuestionRepository questionRepo;
+	@Autowired
+	private ReponseRepository reponseRepo;
 	
 	public List<Theme> getAll() {
 		return themeRepo.findAll();
@@ -44,9 +48,10 @@ public class ThemeService {
 	}
 	
 	public void deleteById(Long id) {
-		Theme t = getById(id);
+		Theme t = getById(id);	
+		reponseRepo.deleteReponseByTheme(t);
 		questionRepo.deleteByTheme(t);
-		themeRepo.delete(getById(id));
+		themeRepo.delete(getById(id));	
 	}
 	
 	public void createOrUpdate(Theme theme) {

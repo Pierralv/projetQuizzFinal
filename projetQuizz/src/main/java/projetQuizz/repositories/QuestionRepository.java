@@ -25,6 +25,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 	void setCreateurToNullByCreateur(@Param("createur") Compte compte);
 	
 	List<Question> findByCreateurContaining(String createur);
+	
 	@Transactional
 	@Modifying
 	void deleteByTheme(Theme theme);
