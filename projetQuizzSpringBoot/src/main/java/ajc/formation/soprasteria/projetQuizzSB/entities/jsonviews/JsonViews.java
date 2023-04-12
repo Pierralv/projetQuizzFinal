@@ -32,7 +32,7 @@ public class JsonViews {
     public static class QuestionsWithTheme extends Simple{
 
     }
-     
+    
     public static class QuestionsWithCompte extends Simple{
 
     }
@@ -45,7 +45,7 @@ public class JsonViews {
 
     }
 
-    public static class ReponsesWithQuestion extends Simple{
+    public static class ReponsesWithQuestion extends ReponseDetail{
 
     }
 }
