@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ajc.formation.soprasteria.projetQuizzSB.entities.Question;
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
 import ajc.formation.soprasteria.projetQuizzSB.services.QuestionService;
 
 @RestController
@@ -27,21 +30,21 @@ public class QuestionRestController {
 	private QuestionService questionSrv;
 	
 	@GetMapping("/all")
-	//jsonview
+	@JsonView(JsonViews.Question.class)
 	public List<Question> getAll(){
 		return questionSrv.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	//jsonview
+	@JsonView(JsonViews.Question.class)
 	public Question getById(@PathVariable Long id) {
 		Question question = null;
 		question = questionSrv.getById(id);
 		return question;
 	}
 	
-	@GetMapping("/{id}/produits")
-	//jsonview
+	@GetMapping("/{id}/reponses")
+	@JsonView(JsonViews.QuestionWithReponses.class)
 	public Question getByIdWithReponses(@PathVariable Long id) {
 		Question question = null;
 		question = questionSrv.getIdWithReponses(id);
@@ -49,7 +52,7 @@ public class QuestionRestController {
 	}
 	
 	@PostMapping("")
-	//jsonview
+	@JsonView(JsonViews.Question.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Question create(@RequestBody Question question) {
 //		if (br.hasErrors()) {
@@ -60,7 +63,7 @@ public class QuestionRestController {
 	}
 	
 	@PutMapping("{id}")
-	//jsonview
+	@JsonView(JsonViews.Question.class)
 	public Question update(@RequestBody Question question, @PathVariable Long id) {
 		Question questionEnBase = questionSrv.getById(id);
 		if (question.getEnonceQuestion() != null) {
@@ -74,7 +77,7 @@ public class QuestionRestController {
 	}
 	
 	@DeleteMapping("{id}")
-	//jsonview
+	@JsonView(JsonViews.Question.class)
 	@ResponseStatus(code =HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		questionSrv.deleteById(id);

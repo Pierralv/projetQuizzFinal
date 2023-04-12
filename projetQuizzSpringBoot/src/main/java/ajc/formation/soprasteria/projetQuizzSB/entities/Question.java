@@ -15,23 +15,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
+
 @Entity
 @Table(name = "question")
 public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="question_id")
+	@JsonView(JsonViews.Question.class)
 	private Long id;
 	@Column(name = "question_enonce", columnDefinition = "TEXT")
 	@Lob
+	@JsonView(JsonViews.Question.class)
 	private String enonceQuestion;
 	@ManyToOne
 	@JoinColumn(name = "question_id_theme", foreignKey = @ForeignKey(name = "question_id_theme_fk"))
+	@JsonView(JsonViews.QuestionsWithTheme.class)
 	private Theme theme;
 	@OneToMany(mappedBy = "question")
+	@JsonView(JsonViews.QuestionWithReponses.class)
 	Set<Reponse> reponses;
 	@ManyToOne
 	@JoinColumn(name = "question_id_createur", foreignKey = @ForeignKey(name="question_id_createur_fk"))
+	@JsonView(JsonViews.QuestionsWithCompte.class)
 	private Compte createur;
 
 	public Question() {

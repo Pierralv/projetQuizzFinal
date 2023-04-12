@@ -28,6 +28,14 @@ public class JsonViews {
     public static class QuestionWithReponses extends Simple{
 
     }
+    
+    public static class QuestionsWithTheme extends Simple{
+
+    }
+     
+    public static class QuestionsWithCompte extends Simple{
+
+    }
 
     public static class Reponse extends Simple{
 
