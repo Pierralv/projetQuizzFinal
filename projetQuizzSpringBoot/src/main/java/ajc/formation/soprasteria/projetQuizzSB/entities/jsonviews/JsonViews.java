@@ -1,4 +1,4 @@
-package ajc.formation.soprasteria.projetQuizzSB.restcontrollers;
+package ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews;
 
 public class JsonViews {
     public static class Simple{
@@ -10,6 +10,6 @@ public class JsonViews {
     }
 
     public static class CompteWithQuestions extends Simple{
-        
+
     }
 }

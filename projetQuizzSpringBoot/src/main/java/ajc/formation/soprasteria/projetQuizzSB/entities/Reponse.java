@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
+
 @Entity
 @Table(name = "reponse")
 public class Reponse {
@@ -18,6 +22,7 @@ public class Reponse {
     @Column(name = "reponse_id")
     private Long id;
     @Column(name = "reponse_enonce")
+    @JsonView(JsonViews.Simple.class)
     private String enonceReponse;
     @Column(name = "bonne_reponse")
     private boolean bonneReponse;

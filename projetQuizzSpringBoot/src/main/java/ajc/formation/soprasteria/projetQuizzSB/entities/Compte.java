@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import ajc.formation.soprasteria.projetQuizzSB.restcontrollers.JsonViews;
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
 
 @Entity
 @Table(name="compte")
