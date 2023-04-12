@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -38,7 +40,7 @@ public class QuestionRestController {
 		return question;
 	}
 	
-	@GetMapping("/{if}/produits")
+	@GetMapping("/{id}/produits")
 	//jsonview
 	public Question getByIdWithReponses(@PathVariable Long id) {
 		Question question = null;
@@ -55,5 +57,26 @@ public class QuestionRestController {
 //		}
 		questionSrv.createOrUpdate(question);
 		return question;
+	}
+	
+	@PutMapping("{id}")
+	//jsonview
+	public Question update(@RequestBody Question question, @PathVariable Long id) {
+		Question questionEnBase = questionSrv.getById(id);
+		if (question.getEnonceQuestion() != null) {
+			questionEnBase.setEnonceQuestion(question.getEnonceQuestion());
+		}
+		if (question.getTheme() != null) {
+			questionEnBase.setTheme(question.getTheme());
+		}
+		questionSrv.createOrUpdate(questionEnBase);
+		return questionEnBase;
+	}
+	
+	@DeleteMapping("{id}")
+	//jsonview
+	@ResponseStatus(code =HttpStatus.NO_CONTENT)
+	public void delete(@PathVariable Long id) {
+		questionSrv.deleteById(id);
 	}
 }
