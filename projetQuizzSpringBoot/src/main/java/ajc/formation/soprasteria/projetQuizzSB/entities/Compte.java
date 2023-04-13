@@ -1,16 +1,24 @@
 package ajc.formation.soprasteria.projetQuizzSB.entities;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -18,7 +26,7 @@ import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
 
 @Entity
 @Table(name="compte")
-public class Compte {
+public class Compte implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="compte_id")
@@ -30,7 +38,7 @@ public class Compte {
 	@Column(name="compte_prenom")
 	@JsonView(JsonViews.Simple.class)
 	private String prenom;
-	@Column(name="compte_pseudo")
+	@Column(name="compte_pseudo", unique = true, nullable = false)
 	@JsonView(JsonViews.Simple.class)
 	private String pseudo;
 	@Column(name="compte_avatar")
@@ -38,10 +46,11 @@ public class Compte {
 	@Column(name="compte_email")
 	@JsonView(JsonViews.Simple.class)
 	private String email;
-	@Column(name="compte_motDePasse")
-	@JsonView(JsonViews.Simple.class)
+	@Column(name="compte_motDePasse", length = 255, nullable = false)
 	private String motDePasse;
-	@Column(name="compte_role")
+	@Column(name="compte_role", nullable = false)
+	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Simple.class)
 	private Role role;
 	@OneToMany(mappedBy = "createur")
 	@JsonView(JsonViews.CompteWithQuestions.class)
@@ -151,7 +160,41 @@ public class Compte {
 		return Objects.equals(email, other.email) && Objects.equals(id, other.id)
 				&& Objects.equals(pseudo, other.pseudo);
 	}
-    
-	
+
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Arrays.asList(new SimpleGrantedAuthority(role.toString()));
+	}
+
+	@Override
+	public String getPassword() {
+		return motDePasse;
+	}
+
+	@Override
+	public String getUsername() {
+		return pseudo;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 	
 }
