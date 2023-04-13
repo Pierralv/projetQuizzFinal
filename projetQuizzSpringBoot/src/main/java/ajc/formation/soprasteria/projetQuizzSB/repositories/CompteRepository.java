@@ -13,4 +13,5 @@ public interface CompteRepository extends JpaRepository<Compte, Long> {
 	@Query("select c from Compte c left join fetch c.questions where c.id=:id")
 	Optional<Compte> findByIdFetchQuestions(@Param ("id") Long id);
 
+	Optional<Compte> findByPseudo(String pseudo);
 }

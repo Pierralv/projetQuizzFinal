@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,36 +32,44 @@ public class CompteRestController {
 	@Autowired
 	CompteService compteSrv;
 	
-	@GetMapping("")
+	@GetMapping("/all")
 	@JsonView(JsonViews.Compte.class)
 	public List<Compte> getAll(){
 		return compteSrv.getAll();
 	}
 	
-	@GetMapping("/{id}")
-	@JsonView(JsonViews.Compte.class)
-	public Compte getById(@PathVariable Long id) {
-		Compte compte = null;
-		compte = compteSrv.getById(id);
-		return compte;
-	}
-	
-	@GetMapping("/{id}/questions")
+	// @GetMapping("/{id}")
+	// @JsonView(JsonViews.Compte.class)
+	// public Compte getById(@PathVariable Long id) {
+	// 	Compte compte = null;
+	// 	compte = compteSrv.getById(id);
+	// 	return compte;
+	// }
+
+	// @GetMapping("/{id}/questions")
+	// @JsonView(JsonViews.CompteWithQuestions.class)
+	// public Compte getByIdWithQuestions(@PathVariable Long id) {
+	// 	Compte compte = null;
+	// 	compte = compteSrv.getByIdWithQuestions(id);
+	// 	return compte;
+	// }
+
+	@GetMapping("/profil")
 	@JsonView(JsonViews.CompteWithQuestions.class)
-	public Compte getByIdWithQuestions(@PathVariable Long id) {
-		Compte compte = null;
-		compte = compteSrv.getByIdWithQuestions(id);
-		return compte;
+	public Compte getByIdWithQuestions(@AuthenticationPrincipal Compte compte) {
+		return compteSrv.getByIdWithQuestions(compte.getId());
 	}
+
+	// getMapping avec Stats
 	
-	@PostMapping("")
+	@PostMapping("/inscription")
 	@JsonView(JsonViews.Compte.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Compte create(@Valid @RequestBody Compte compte, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		compteSrv.createOrUpdate(compte);
+		compteSrv.createUser(compte);
 		return compte;
 	}
 	
@@ -68,16 +77,27 @@ public class CompteRestController {
 	@JsonView(JsonViews.Compte.class)
 	public Compte update(@RequestBody Compte compte, @PathVariable Long id) {
 		Compte compteEnBase = compteSrv.getById(id);
-		if (compte.getEmail() != null) {
-			compteEnBase.setEmail(compte.getEmail());
+		if (compte.getNom() != null) {
+			compteEnBase.setNom(compte.getNom());
 		}
-		if (compte.getPseudo() != null) {
-			compteEnBase.setPseudo(compte.getPseudo());
+		if (compte.getPrenom() != null) {
+			compteEnBase.setPrenom(compte.getPrenom());
 		}
-		compteEnBase.setAvatar(compte.getAvatar());
-		compteEnBase.setNom(compte.getNom());
-		compteEnBase.setPrenom(compte.getPrenom());
-		compteSrv.createOrUpdate(compteEnBase);
+		if (compte.getAvatar() != null) {
+			compteEnBase.setAvatar(compte.getAvatar());
+		}
+		compteSrv.update(compteEnBase);
+		return compteEnBase;
+	}
+
+	@PutMapping("/{id}/byadmin")
+	@JsonView(JsonViews.Compte.class)
+	public Compte updateRole(@RequestBody Compte compte, @PathVariable Long id) {
+		Compte compteEnBase = compteSrv.getById(id);
+		if (compte.getRole() != null) {
+			compteEnBase.setRole(compte.getRole());
+		}
+		compteSrv.updateByAdmin(compteEnBase);
 		return compteEnBase;
 	}
 	
