@@ -53,11 +53,11 @@ public class ThemeService {
 		themeRepo.delete(getById(id));	
 	}
 	
-	public void createOrUpdate(Theme theme) {
+	public Theme createOrUpdate(Theme theme) {
 		if (theme.getNom() == null || theme.getNom().isBlank()) {
 			throw new ThemeException("Nom obligatoire");
 		}
-		themeRepo.save(theme);
+		return themeRepo.save(theme);
 	}
 	
 	public List<Theme> getByNom(String nom) {

@@ -3,9 +3,11 @@ package ajc.formation.soprasteria.projetQuizzSB.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ajc.formation.soprasteria.projetQuizzSB.entities.Compte;
+import ajc.formation.soprasteria.projetQuizzSB.entities.Role;
 import ajc.formation.soprasteria.projetQuizzSB.exceptions.CompteException;
 import ajc.formation.soprasteria.projetQuizzSB.repositories.CompteRepository;
 import ajc.formation.soprasteria.projetQuizzSB.repositories.QuestionRepository;
@@ -18,6 +20,9 @@ public class CompteService {
 	
 	@Autowired
 	private QuestionRepository questionRepo;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public List<Compte> getAll(){
 		return compteRepo.findAll();
@@ -52,7 +57,17 @@ public class CompteService {
 		
 	}
 	
-	public void createOrUpdate(Compte compte) {
+	public Compte createUser(Compte compte) {
+		compte.setRole(Role.ROLE_UTILISATEUR);
+		return create(compte);
+	}
+
+	public Compte createAdmin(Compte compte) {
+		compte.setRole(Role.ROLE_ADMIN);
+		return create(compte);
+	}
+
+	private Compte create(Compte compte) {
 		if(compte.getEmail() == null || compte.getEmail().isBlank()) {
 			throw new CompteException("email obligatoire");
 		}
@@ -62,10 +77,24 @@ public class CompteService {
 		if(compte.getRole() == null) {
 			throw new CompteException("probleme role");
 		}
-		compteRepo.save(compte);
+		compte.setMotDePasse(passwordEncoder.encode(compte.getMotDePasse()));
+		return compteRepo.save(compte);
 	}
-	
-	
-	
+
+	// methode accessible par les utilisateurs
+	public Compte update(Compte compte) {
+		return compteRepo.save(compte);
+	}
+
+	// methode accessible uniquement par un ADMIN pour changer le role des utilisateurs
+	public Compte updateByAdmin(Compte compte) {
+		return compteRepo.save(compte);
+	}
+
+	public Compte getByPseudo(String pseudo) {
+		return compteRepo.findByPseudo(pseudo).orElseThrow(() -> {
+			throw new CompteException();
+		});
+	}
 	
 }

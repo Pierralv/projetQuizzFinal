@@ -41,11 +41,11 @@ public class QuestionService {
 		questionRepo.deleteById(id);
 	}
 	
-	public void createOrUpdate(Question question) {
+	public Question createOrUpdate(Question question) {
 		if (question.getEnonceQuestion() == null || question.getEnonceQuestion().isBlank()) {
 			throw new QuestionException("Enonce obligatoire");
 		}
-		questionRepo.save(question);
+		return questionRepo.save(question);
 	}
 	
 	public List<Question> getByCreateur (String createur){

@@ -37,11 +37,11 @@ public class ReponseService {
 	// 	reponseRepo.delete(getById(id));
 	// }
 
-	public void createOrUpdate(Reponse reponse) {
+	public Reponse createOrUpdate(Reponse reponse) {
 		if (reponse.getEnonceReponse() == null || reponse.getEnonceReponse().isBlank()) {
 			throw new ReponseException("Enonce obligatoire");
 		}
-		reponseRepo.save(reponse);
+		return reponseRepo.save(reponse);
 	}
 
     public List<Reponse> getByEnonce(String enonce){
