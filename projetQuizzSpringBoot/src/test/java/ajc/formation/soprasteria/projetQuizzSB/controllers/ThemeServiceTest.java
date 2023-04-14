@@ -40,7 +40,7 @@ public class ThemeServiceTest {
 	@Test
 	void initTheme() {
 		themeService.createOrUpdate(t);
-		compteSrv.createOrUpdate(compte1);
+		compteSrv.createUser(compte1);
 		questionService.createOrUpdate(q);
 		Reponse rep1 = new Reponse("enonce de la reponse", false, q);
 		Reponse rep2 = new Reponse("enonce de la reponse", false, q);

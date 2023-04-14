@@ -35,14 +35,14 @@ public class CompteServiceTest {
 	@Commit
 	void initCompte() {
 		Compte compte1 = new Compte("nom", "prenom", "pseudo", "avatar", "email", "mdp", Role.ROLE_ADMIN);
-		compteSrv.createOrUpdate(compte1);
+		compteSrv.createUser(compte1);
 		questionService.createOrUpdate(q);	
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		q.setCreateur(compte1);
-		compteSrv.createOrUpdate(compte1);
+		compteSrv.update(compte1);
 		System.out.println("get by id:");
 		System.out.println(compteSrv.getById(1L));
 		System.out.println("get all");
