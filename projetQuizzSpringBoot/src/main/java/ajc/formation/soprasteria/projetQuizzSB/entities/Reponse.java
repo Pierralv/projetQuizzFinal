@@ -20,13 +20,13 @@ public class Reponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reponse_id")
-    @JsonView(JsonViews.ReponseDetail.class)
+    @JsonView(JsonViews.Reponse.class)
     private Long id;
     @Column(name = "reponse_enonce")
     @JsonView(JsonViews.Simple.class)
     private String enonceReponse;
     @Column(name = "bonne_reponse")
-    @JsonView(JsonViews.ReponseDetail.class)
+    @JsonView(JsonViews.Reponse.class)
     private boolean bonneReponse;
     @ManyToOne
     @JoinColumn(name = "reponse_id_question", foreignKey =  @ForeignKey(name = "reponse_id_question_fk"))

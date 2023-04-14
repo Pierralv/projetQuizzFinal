@@ -30,20 +30,14 @@ public class ReponseRestController {
     @Autowired
     private ReponseService reponseSrv;
 
-    @GetMapping("")
+    @GetMapping("/all")
 	@JsonView(JsonViews.Reponse.class)
 	public List<Reponse> getAll() {
 		return reponseSrv.getAll();
 	}
 
-	@GetMapping("/detail")
-	@JsonView(JsonViews.ReponseDetail.class)
-	public List<Reponse> getAllWithDetail() {
-		return reponseSrv.getAll();
-	}
-
-    @GetMapping("/{id}/detail")
-	@JsonView(JsonViews.ReponseDetail.class)
+    @GetMapping("/{id}")
+	@JsonView(JsonViews.Reponse.class)
 	public Reponse getById(@PathVariable Long id) {
         Reponse reponse = reponseSrv.getById(id);
 		return reponse;
