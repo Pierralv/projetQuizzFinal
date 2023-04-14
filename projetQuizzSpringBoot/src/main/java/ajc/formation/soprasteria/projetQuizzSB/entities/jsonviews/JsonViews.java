@@ -41,11 +41,7 @@ public class JsonViews {
 
     }
 
-    public static class ReponseDetail extends Simple{
-
-    }
-
-    public static class ReponsesWithQuestion extends ReponseDetail{
+    public static class ReponsesWithQuestion extends Reponse{
 
     }
 }
