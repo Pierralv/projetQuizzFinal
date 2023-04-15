@@ -21,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import ajc.formation.soprasteria.projetQuizzSB.entities.Theme;
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
 import ajc.formation.soprasteria.projetQuizzSB.exceptions.ThemeException;
 import ajc.formation.soprasteria.projetQuizzSB.services.ThemeService;
 
@@ -32,13 +33,13 @@ public class ThemeRestController {
 	private ThemeService themeSrv;
 	
 	@GetMapping("")
-	//@JsonView(JsonViews.ThemeWithQuestion.class)
+	@JsonView(JsonViews.Theme.class)
 	public List<Theme> getAll() {
 		return themeSrv.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	//@JsonView(JsonViews.ThemeWithQuestion.class)
+	@JsonView(JsonViews.ThemeWithQuestions.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Theme getById(@PathVariable Long id) {
 		Theme theme = null;
@@ -51,7 +52,7 @@ public class ThemeRestController {
 	}
 	
 	@PostMapping("")
-	//@JsonVienw(JsonViews.ThemeWthQuestion.class)
+	@JsonView(JsonViews.Theme.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Theme Create(@Valid @RequestBody Theme theme, BindingResult br) {
 		if (br.hasErrors()) {
@@ -62,7 +63,7 @@ public class ThemeRestController {
 	}
 	
 	@PutMapping("/{id}")
-	//@JsonView(JsonViews.Theme theme, @PathVariable Long id)
+	@JsonView(JsonViews.Theme.class)
 	public Theme update(@RequestBody Theme theme, @PathVariable Long id) {
 		Theme themeEnBase = themeSrv.getById(id);
 		if (theme.getNom() != null) {
