@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projetQuizz.entities.Compte;
 import projetQuizz.entities.Question;
 import projetQuizz.exceptions.QuestionException;
 import projetQuizz.repositories.QuestionRepository;
@@ -48,8 +49,8 @@ public class QuestionService {
 		questionRepo.save(question);
 	}
 	
-	public List<Question> getByCreateur (String createur){
-		return questionRepo.findByCreateurContaining(createur);
+	public List<Question> getByCreateur (Compte createur){
+		return questionRepo.findByCreateur(createur);
 	}
 	
 	public Question getIdWithReponses(Long id) {

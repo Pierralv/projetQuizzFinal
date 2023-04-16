@@ -2,6 +2,8 @@ package ajc.formation.soprasteria.projetQuizzSB.restcontrollers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -54,10 +56,10 @@ public class QuestionRestController {
 	@PostMapping("")
 	@JsonView(JsonViews.Question.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Question create(@RequestBody Question question) {
-//		if (br.hasErrors()) {
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//		}
+	public Question create(@Valid @RequestBody Question question, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
 		questionSrv.createOrUpdate(question);
 		return question;
 	}

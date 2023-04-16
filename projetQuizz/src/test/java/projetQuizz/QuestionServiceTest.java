@@ -13,8 +13,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import projetQuizz.config.JpaConfig;
+import projetQuizz.entities.Compte;
 import projetQuizz.entities.Question;
 import projetQuizz.entities.Reponse;
+import projetQuizz.entities.Role;
+import projetQuizz.services.CompteService;
 import projetQuizz.services.QuestionService;
 import projetQuizz.services.ReponseService;
 
@@ -27,8 +30,11 @@ class QuestionServiceTest {
 	QuestionService questionService;	
 	@Autowired 
 	ReponseService reponseService;
+	@Autowired
+	CompteService compteService;
 	
-	private Question q = new Question("enoncee", null);
+	private Compte c = new Compte(null, null, "Jean", null, "mail", "mdr", Role.ROLE_UTILISATEUR);
+	private Question q = new Question("enoncee", null, c );
 	
 	@Test
 	void injectionQuestionServiceTest() {
@@ -38,6 +44,7 @@ class QuestionServiceTest {
 	@Test
 	@Commit
 	void initQuestionReponse() {
+		compteService.createOrUpdate(c);
 		questionService.createOrUpdate(q);
 		assertNotNull(questionService.getById(q.getId()));
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
@@ -46,6 +53,7 @@ class QuestionServiceTest {
 		reponseService.createOrUpdate(new Reponse("enonce de la reponse", false, q));
 		System.out.println(questionService.getAll());
 		System.out.println(reponseService.getAll());
+		System.out.println(questionService.getByCreateur(c));
 		// System.out.println(questionService.getIdWithReponses(1L));	
 		questionService.deleteById(1L);
 	}
