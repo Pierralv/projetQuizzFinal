@@ -10,6 +10,10 @@ import { LienComponent } from './components/lien/lien.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ThemeComponent } from './components/theme/theme.component';
+import { StatistiquesComponent } from './components/statistiques/statistiques.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     ConnexionComponent,
     LienComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    InscriptionComponent,
+    ProfilComponent,
+    ThemeComponent,
+    StatistiquesComponent
   ],
   imports: [
     BrowserModule,
