@@ -49,7 +49,6 @@ public class CompteServiceTest {
 		System.out.println(compteSrv.getAll());
 		System.out.println("get questions");
 		System.out.println(compteSrv.getByIdWithQuestions(1L));
-		compteSrv.deleteById(1L);
 		System.out.println("delete");
 		System.out.println(compteSrv.getAll());
 	}

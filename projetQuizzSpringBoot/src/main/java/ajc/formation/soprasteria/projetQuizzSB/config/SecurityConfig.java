@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/api/compte/inscription").anonymous()
                 .antMatchers(HttpMethod.PUT, "/api/compte/**/byadmin").hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/api/compte/all").hasAnyRole("ADMIN") //acces à la liste des comptes
-                .antMatchers(HttpMethod.GET, "/api/compte/profil**").hasAnyRole("ADMIN","UTILISATEUR") //acces aux profils individuels
+                .antMatchers(HttpMethod.GET, "/api/compte/profil").hasAnyRole("ADMIN","UTILISATEUR") //acces aux profils individuels
                 //theme
                 .antMatchers(HttpMethod.POST, "/api/theme").hasAnyRole("ADMIN") //acces à la creation de question
                 .antMatchers(HttpMethod.PUT, "/api/theme/**").hasAnyRole("ADMIN") //acces à la creation de question
