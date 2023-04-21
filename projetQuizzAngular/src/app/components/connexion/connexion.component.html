@@ -1,0 +1,35 @@
+<h2>Connexion</h2>
+<div>
+  <form (ngSubmit)="check(form)" #form="ngForm">
+    <div class="alert alert-danger" *ngIf="showError">
+      information incorrectes
+    </div>
+    <div class="form-group">
+      <label
+        >login:<input
+          class="form-control"
+          name="inputLogin"
+          [(ngModel)]="pseudo"
+          required
+          #loginCtrl="ngModel"
+        />
+      </label>
+      <span *ngIf="loginCtrl.dirty && loginCtrl.invalid">*obligatoire</span>
+    </div>
+    <div class="form-group">
+      <label
+        >mot de passe:<input
+          type="password"
+          name="inputPassword"
+          class="form-control"
+          [(ngModel)]="motDePasse"
+          required
+      /></label>
+    </div>
+    <div class="form-group">
+      <button type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="form.invalid">envoyer</button>
+    </div>
+  </form>
+</div>
