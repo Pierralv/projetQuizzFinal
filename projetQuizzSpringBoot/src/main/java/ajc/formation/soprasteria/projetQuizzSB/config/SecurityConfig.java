@@ -20,6 +20,7 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 //compte
                 .antMatchers(HttpMethod.POST, "/api/compte/inscription").anonymous()
                 .antMatchers(HttpMethod.PUT, "/api/compte/**/byadmin").hasAnyRole("ADMIN")
