@@ -19,12 +19,13 @@
     <div class="form-group">
       <label
         >mot de passe:<input
-          type="password"
+          [type]="showPassword ? 'text' : 'password'"
           name="inputPassword"
           class="form-control"
           [(ngModel)]="motDePasse"
           required
       /></label>
+      <button (click)="show()">Montrer password</button>
     </div>
     <div class="form-group">
       <button type="submit"

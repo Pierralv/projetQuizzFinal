@@ -13,6 +13,7 @@ export class ConnexionComponent {
   pseudo: string='';
   motDePasse: string ='';
   showError = false;
+  showPassword= false;
   constructor(private connexionSrv: ConnexionService, private router: Router) {}
 
   check(form: NgForm) {
@@ -30,6 +31,12 @@ export class ConnexionComponent {
         },
       });
     }
+  }
+
+  show(){
+    this.showPassword = !this.showPassword;
+    console.log(this.showPassword);
+
   }
 
 }
