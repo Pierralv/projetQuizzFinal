@@ -15,6 +15,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ThemeComponent } from './components/theme/theme.component';
 import { StatistiquesComponent } from './components/statistiques/statistiques.component';
 import { QuizzComponent } from './components/quizz/quizz.component';
+import { ModifierProfilComponent } from './components/profil/modifier-profil/modifier-profil.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { QuizzComponent } from './components/quizz/quizz.component';
     ProfilComponent,
     ThemeComponent,
     StatistiquesComponent,
-    QuizzComponent
+    QuizzComponent,
+    ModifierProfilComponent
   ],
   imports: [
     BrowserModule,
