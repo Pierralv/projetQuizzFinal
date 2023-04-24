@@ -21,10 +21,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import ajc.formation.soprasteria.projetQuizzSB.entities.Question;
 import ajc.formation.soprasteria.projetQuizzSB.entities.Theme;
 import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
-import ajc.formation.soprasteria.projetQuizzSB.exceptions.ThemeException;
 import ajc.formation.soprasteria.projetQuizzSB.services.ThemeService;
 
 @RestController
@@ -51,7 +49,7 @@ public class ThemeRestController {
 	
 	@GetMapping("/{id}/questions")
 	@JsonView(JsonViews.ThemeWithQuestions.class)
-	public Theme getByIdWithReponses(@PathVariable Long id) {
+	public Theme getByIdWithQuestions(@PathVariable Long id) {
 		Theme theme = null;
 		theme = themeSrv.getIdWithQuestions(id);
 		return theme;

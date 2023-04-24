@@ -26,7 +26,7 @@ public class Theme {
 	@JsonView(JsonViews.Theme.class)
 	private String nom;
 	@OneToMany(mappedBy="theme")
-	@JsonView(JsonViews.ThemeWithQuestions.class)
+	@JsonView({JsonViews.ThemeWithQuestions.class, JsonViews.Question.class})
 	private Set<Question> questions;
 	
     public Theme() {

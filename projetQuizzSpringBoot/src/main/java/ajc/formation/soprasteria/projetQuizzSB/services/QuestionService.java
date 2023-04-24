@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ajc.formation.soprasteria.projetQuizzSB.entities.Compte;
 import ajc.formation.soprasteria.projetQuizzSB.entities.Question;
+import ajc.formation.soprasteria.projetQuizzSB.entities.Theme;
 import ajc.formation.soprasteria.projetQuizzSB.exceptions.QuestionException;
 import ajc.formation.soprasteria.projetQuizzSB.repositories.QuestionRepository;
 import ajc.formation.soprasteria.projetQuizzSB.repositories.ReponseRepository;
@@ -51,6 +52,10 @@ public class QuestionService {
 	
 	public List<Question> getByCreateur (Compte createur){
 		return questionRepo.findByCreateur(createur);
+	}
+
+	public List<Question> getByTheme (Theme theme){
+		return questionRepo.findByTheme(theme);
 	}
 	
 	public Question getIdWithReponses(Long id) {

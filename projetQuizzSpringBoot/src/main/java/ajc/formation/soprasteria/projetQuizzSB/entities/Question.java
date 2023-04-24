@@ -29,7 +29,7 @@ public class Question {
 	private Long id;
 	@Column(name = "question_enonce", columnDefinition = "TEXT")
 	@Lob
-	@JsonView({JsonViews.Question.class, JsonViews.QuestionWithReponses.class, JsonViews.CompteWithQuestions.class})
+	@JsonView({JsonViews.Question.class, JsonViews.QuestionWithReponses.class, JsonViews.CompteWithQuestions.class, JsonViews.ThemeWithQuestions.class})
 	private String enonceQuestion;
 	@ManyToOne
 	@JoinColumn(name = "question_id_theme", foreignKey = @ForeignKey(name = "question_id_theme_fk"))
