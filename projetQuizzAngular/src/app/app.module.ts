@@ -14,6 +14,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
 import { ProfilComponent } from './components/profil/profil.component';
 import { ThemeComponent } from './components/theme/theme.component';
 import { StatistiquesComponent } from './components/statistiques/statistiques.component';
+import { QuizzComponent } from './components/quizz/quizz.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StatistiquesComponent } from './components/statistiques/statistiques.co
     InscriptionComponent,
     ProfilComponent,
     ThemeComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
+    QuizzComponent
   ],
   imports: [
     BrowserModule,
