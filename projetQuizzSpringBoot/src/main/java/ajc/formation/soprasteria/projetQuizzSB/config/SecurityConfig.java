@@ -37,7 +37,7 @@ public class SecurityConfig {
                 //reponse
                 .antMatchers(HttpMethod.POST, "/api/reponse").hasAnyRole("ADMIN") //acces à la creation de question
                 .antMatchers(HttpMethod.PUT, "/api/reponse/**").hasAnyRole("ADMIN") //acces à la modif de question
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .httpBasic()
                 .and()

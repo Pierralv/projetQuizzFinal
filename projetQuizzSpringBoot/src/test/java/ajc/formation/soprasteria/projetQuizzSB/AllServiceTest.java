@@ -30,9 +30,9 @@ public class AllServiceTest {
 	@Autowired 
 	ReponseService reponseService;
 	
-	private Compte compte1 = new Compte("nomAdmin", "prenomAdmin", "pseudoAdmin", "avatarAdmin", "emailAdmin", "mdp", Role.ROLE_ADMIN);
-	private Compte compte2 = new Compte("nom1", "prenom1", "pseudo1", "avatar1", "email1", "mdp", Role.ROLE_UTILISATEUR);
-	private Compte compte3 = new Compte("nom2", "prenom2", "pseudo2", "avatar2", "email2", "mdp", Role.ROLE_UTILISATEUR);
+	private Compte compte1 = new Compte("nomAdmin", "prenomAdmin", "admin", "avatarAdmin", "emailAdmin", "admin", Role.ROLE_ADMIN);
+	private Compte compte2 = new Compte("nom1", "prenom1", "user1", "avatar1", "email1", "user1", Role.ROLE_UTILISATEUR);
+	private Compte compte3 = new Compte("nom2", "prenom2", "user2", "avatar2", "email2", "user2", Role.ROLE_UTILISATEUR);
 	private Theme theme = new Theme("film");
 	private Question question = new Question("enonce", theme, compte1);
 
