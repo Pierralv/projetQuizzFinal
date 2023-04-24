@@ -1,1 +1,48 @@
-<p>profil works!</p>
+<div class="row border-bottom mt-4 align-items-center">
+  <div class="col-6 text-center">
+    <h2>Bienvenue {{ compte.pseudo }}</h2>
+  </div>
+  <div class="col-6 text-center">
+    <img id="avatar" src="assets/img/article1-istock.jpg" alt="Avatar" />
+  </div>
+</div>
+
+<div class="row mt-4 ">
+  <div class="col">
+    <p class="fw-bold mt-3 mb-5">Informations du compte:</p>
+    <p class="fw-bold text-secondary">
+      Pseudo: <span class="fw-normal text-dark">{{ compte.pseudo }}</span>
+    </p>
+    <p class="fw-bold text-secondary">
+      Nom: <span class="fw-normal text-dark">{{ compte.nom }}</span>
+    </p>
+    <p class="fw-bold text-secondary">
+      Prenom: <span class="fw-normal text-dark">{{ compte.prenom }}</span>
+    </p>
+  </div>
+  <div class="col mb-5">
+    <p class="fw-bold mt-3 mb-5">Statistiques:</p>
+    <p class="fw-bold text-secondary">
+      Score maximum: <span class="text-dark fw-normal">9/10</span>
+    </p>
+    <p class="fw-bold text-secondary">
+      Score moyen: <span class="text-dark fw-normal">6/10</span>
+    </p>
+    <p class="fw-bold text-secondary">
+      Temps moyen de réponse:
+      <span class="text-dark fw-normal">15 secondes</span>
+    </p>
+  </div>
+</div>
+
+<div class="text-center mt-5"><a class="btn btn-primary">Modifier le compte</a></div>
+<div *ngIf = "!warning" class="text-center mt-5"><button class="btn btn-danger" (click)="showWarning()">Supprimer le compte</button></div>
+<div *ngIf = "warning" class="text-center mt-5"><button class="btn btn-danger" (click)="showWarning()">← Retour</button></div>
+<ng-container *ngIf="warning">
+<div class="text-center mt-3" >
+  <p class="fw-bold text-danger">Êtes vous sur de vouloir supprimer votre compte définitivement ?</p>
+  <p><button class="btn btn-outline-danger mx-2" (click)="suppression(compte.id!)">Oui</button><button class="btn btn-outline-danger mx-2" (click)="showWarning()">Non</button></p>
+</div>
+</ng-container>
+
+
