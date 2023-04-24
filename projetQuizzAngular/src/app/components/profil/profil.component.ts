@@ -15,6 +15,7 @@ export class ProfilComponent implements OnInit {
 
   warning=false;
   compte!:Compte;
+  messageSuppression=false;
 
   ngOnInit(): void {
     this.initCompte();
@@ -30,10 +31,15 @@ export class ProfilComponent implements OnInit {
     this.warning = !this.warning;
   }
 
+
   suppression(id: number) {
-    this.compteSrv.suppression(id).subscribe(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl('/home');
-    });
+    this.messageSuppression = true;
+    setTimeout(()=>{
+      this.compteSrv.suppression(id).subscribe(() => {
+        sessionStorage.clear();
+        this.router.navigateByUrl('/home');
+      });
+    }
+    ,3000);
   }
 }
