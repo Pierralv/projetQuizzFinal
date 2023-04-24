@@ -13,6 +13,10 @@ export class CompteServiceService {
     return this.http.post(compteRest + '/inscription', compte);
   }
 
+  public checkPseudo(pseudo: string): Observable<any> {
+    return this.http.get<boolean>(compteRest + '/pseudo/check/' + pseudo);
+  }
+
   public suppression(id: number): Observable<any> {
     return this.http.delete<void>(compteRest + `/${id}`)
   }

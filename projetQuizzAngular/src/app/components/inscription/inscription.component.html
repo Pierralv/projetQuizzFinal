@@ -1,3 +1,90 @@
 <h2>Inscription</h2>
-
-
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="prenom">Prenom:</label>
+    <input id="prenom" class="form-control" formControlName="prenom" />
+  </div>
+  <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input id="nom" class="form-control" formControlName="nom" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      class="form-control"
+      formControlName="email"
+      type="email"
+    />
+  </div>
+  <ng-container formGroupName="compteGroup">
+    <div class="form-group">
+      <label for="pseudo">Pseudo:</label>
+      <input id="pseudo" class="form-control" formControlName="pseudo" />
+      <div *ngIf="">Ce pseudo est déjà utilisé</div>
+    </div>
+    <ng-container formGroupName="mdpGroup">
+      <div class="form-group">
+        <label for="mdp">Mot de passe:</label>
+        <input
+          id="mdp"
+          class="form-control"
+          formControlName="mdp"
+          type="password"
+        />
+        <div *ngIf="form.get('compteGroup.mdpGroup.mdp')?.dirty">
+          Le mot de passe doit comporter au moins:
+          <ul>
+            <li>Une minuscule</li>
+            <li>Une majuscule</li>
+            <li>Un chiffre</li>
+          </ul>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            form.get('compteGroup.pseudo')?.value ==
+              form.get('compteGroup.mdpGroup.mdp')?.value &&
+            form.get('compteGroup.mdpGroup.mdp')?.dirty
+          "
+        >
+          Le pseudo et le mot de passe doivent être différents
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mdpConfirm">Confirmez votre mot de passe:</label>
+        <input
+          id="mdpConfirm"
+          class="form-control"
+          formControlName="mdpConfirm"
+          type="password"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            form.get('compteGroup.mdpGroup.mdp')?.value !=
+              form.get('compteGroup.mdpGroup.mdpConfirm')?.value &&
+            form.get('compteGroup.mdpGroup.mdpConfirm')?.dirty
+          "
+        >
+          Les mots de passe ne correspondent pas
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div>
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
+      Enregister
+    </button>
+    <a
+      routerLink="/home"
+      routerLinkActive="active"
+      class="btn btn-outline-danger"
+      >Annuler</a
+    >
+  </div>
+</form>

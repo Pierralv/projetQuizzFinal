@@ -97,4 +97,8 @@ public class CompteService {
 		});
 	}
 	
+	public boolean pseudoAlreadyExist(String pseudo) {
+		return compteRepo.findByPseudo(pseudo).isPresent();
+	}
+	
 }

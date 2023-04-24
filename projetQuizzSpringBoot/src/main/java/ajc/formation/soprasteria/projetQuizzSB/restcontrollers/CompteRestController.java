@@ -108,5 +108,10 @@ public class CompteRestController {
 	public void delete(@PathVariable Long id) {
 		compteSrv.deleteById(id);
 	}
+	
+	@GetMapping("/pseudo/check/{pseudo}")
+	public boolean loginExist(@PathVariable String pseudo) {
+		return compteSrv.pseudoAlreadyExist(pseudo);
+	}
 
 }
