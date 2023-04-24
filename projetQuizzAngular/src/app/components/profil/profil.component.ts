@@ -14,6 +14,7 @@ export class ProfilComponent implements OnInit {
   constructor(private compteSrv:CompteServiceService, private router:Router){}
 
   warning=false;
+  modif=false;
   compte!:Compte;
   messageSuppression=false;
 
@@ -31,6 +32,9 @@ export class ProfilComponent implements OnInit {
     this.warning = !this.warning;
   }
 
+  showModif(){
+    this.modif = !this.modif
+  }
 
   suppression(id: number) {
     this.messageSuppression = true;
@@ -40,6 +44,6 @@ export class ProfilComponent implements OnInit {
         this.router.navigateByUrl('/home');
       });
     }
-    ,3000);
+    ,10000);
   }
 }
