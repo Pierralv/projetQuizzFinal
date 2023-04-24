@@ -7,11 +7,13 @@
   </ng-container>
   <ng-container *ngIf="utilisateur">
     <app-lien etiquetteLien="profile" lien="/profile"></app-lien>
-    <app-lien etiquetteLien="quizz" lien="/quizz"></app-lien>
   </ng-container>
   <ng-container *ngIf="!connecte" >
     <app-lien etiquetteLien="inscription" lien="/inscription"></app-lien>
     <app-lien etiquetteLien="connexion" lien="/connexion"></app-lien>
+  <ng-container *ngIf="!admin">
+    <app-lien etiquetteLien="quizz" lien="/quizz"></app-lien>
+  </ng-container>
   </ng-container>
   <button *ngIf="connecte" class="btn btn-link" (click)="deconnexion()">Déconnexion</button>
 </nav>
