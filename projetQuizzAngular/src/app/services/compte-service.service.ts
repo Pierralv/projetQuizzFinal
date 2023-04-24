@@ -4,15 +4,16 @@ import { Observable } from 'rxjs';
 import { compteRest } from '../env';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompteServiceService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  public inscription(compte:any): Observable<any> {
+  public inscription(compte: any): Observable<any> {
     return this.http.post(compteRest + '/inscription', compte);
   }
 
-
+  public suppression(id: number): Observable<any> {
+    return this.http.delete<void>(compteRest + `/${id}`)
+  }
 }
