@@ -1,17 +1,18 @@
-<h2 class="text-center">Bienvenue</h2>
-<hr>
-<div class="flex-container">
-<div class="row align-items-center ">
-  <div class="col-6 text-center">
-  <app-connexion></app-connexion>
+<h2 class="text-center">Bienvenue sur QuizzApp !</h2>
+<hr />
+<div class="row">
+  <div class="col-5"></div>
+    <div class="col-4 mt-5">
+      <ng-container *ngIf="showConnexion">
+        <app-connexion></app-connexion>
+      </ng-container>
+    </div>
+    <div class="col-4 mt-5"></div>
+    <ng-container *ngIf="!showConnexion">
+      <h2 class="text-center mb-5" id="slogan">Déjà connecté ? Jouez sans plus attendre !</h2>
+    </ng-container>
+    <div class="text-center mt-3" >
+      <a routerLink="/quizz" routerLinkActive="active" id="btn-jouer">Jouer </a>
+    </div>
   </div>
-  <div class="col-6 text-center">
-      <a
-      routerLink="/quizz"
-      routerLinkActive="active"
-      class="btn btn-success"
-      >Jouer
-      </a>
-  </div>
-</div>
-</div>
+
