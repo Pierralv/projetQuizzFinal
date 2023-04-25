@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'quizz', component: QuizzComponent, canActivate: [AnonymousGuardService, UtilisateurGuardService]},
   {path: 'statistiques', component : StatistiquesComponent, canActivate: [UtilisateurGuardService]},
   {path: 'theme', component : ThemeComponent, canActivate: [AdminGuardService] },
-  {path: 'prep', component: PrepaQuizzComponent, canActivate: [AnonymousGuardService, UtilisateurGuardService]}
+  {path: 'prep', component: PrepaQuizzComponent, canActivate: [AnonymousGuardService || UtilisateurGuardService]}
 
 
 ];
