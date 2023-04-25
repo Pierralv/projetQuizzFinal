@@ -15,10 +15,8 @@ export class InscriptionComponent implements OnInit {
   form!: FormGroup;
   showPassword = false;
   avatar: string = 'assets/img/sans_avatar.jpg';
-  compte!: Compte;
 
   ngOnInit(): void {
-    this.compte = new Compte();
     this.form = new FormGroup({
       prenom: new FormControl('', Validators.required),
       nom: new FormControl('', Validators.required),
@@ -82,9 +80,4 @@ export class InscriptionComponent implements OnInit {
   traitementAvatarInscription(avatar: string) {
     this.avatar = avatar;
   }
-
-  traitementAvatarCompte(avatar: string) {
-    this.compte.avatar = avatar;
-  }
-
 }
