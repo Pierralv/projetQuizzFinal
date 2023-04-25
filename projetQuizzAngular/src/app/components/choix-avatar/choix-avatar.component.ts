@@ -19,7 +19,9 @@ export class ChoixAvatarComponent {
   }
 
   changerAvatarString(chemin:string){
+    console.log(this.avatar);
     this.avatar = chemin;
+    console.log(this.avatar);
   }
 
 }
