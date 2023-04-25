@@ -13,6 +13,7 @@ export class InscriptionComponent implements OnInit {
   constructor(private compteSrv: CompteServiceService, private router: Router) {}
   form!: FormGroup;
   showPassword = false;
+  avatar!: string;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -63,9 +64,9 @@ export class InscriptionComponent implements OnInit {
       pseudo: this.form.get('compteGroup.pseudo')?.value,
       email: this.form.get('email')?.value,
       motDePasse: this.form.get('compteGroup.mdpGroup.mdp')?.value,
+      avatar: this.avatar,
     };
     this.compteSrv.inscription(compteJson).subscribe((compte) => {
-      console.log(compteJson);
       this.router.navigateByUrl('/home');
     })
   }

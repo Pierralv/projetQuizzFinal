@@ -1,4 +1,5 @@
 <h2>Inscription</h2>
+
 <form (ngSubmit)="submit()" [formGroup]="form">
   <div class="form-group">
     <label for="prenom">Prenom:</label>
@@ -137,7 +138,7 @@
       </div>
     </ng-container>
   </ng-container>
-
+  <app-choix-avatar [avatar]="avatar"></app-choix-avatar>
   <div>
     <button
       type="submit"
