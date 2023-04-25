@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
   constructor(private compteSrv: CompteServiceService, private router: Router) {}
   form!: FormGroup;
   showPassword = false;
-  avatar: string = 'assets/img/sans_avatar.jpg';
+  avatar: string = 'assets/img/avatarVide.png';
 
   ngOnInit(): void {
     this.form = new FormGroup({
