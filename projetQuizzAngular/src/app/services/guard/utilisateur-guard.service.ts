@@ -18,13 +18,15 @@ export class UtilisateurGuardService {
   | UrlTree
   | Observable<boolean | UrlTree>
   | Promise<boolean | UrlTree> {
-    if (sessionStorage.getItem('compte')) {
-      let compte: Compte = JSON.parse(
-        sessionStorage.getItem('compte')!
-      )as Compte;
-      return compte.role == Role.ROLE_UTILISATEUR;
+    if (sessionStorage.getItem('token')) {
+      if (sessionStorage.getItem('compte')) {
+        let compte: Compte = JSON.parse(
+          sessionStorage.getItem('compte')!
+        ) as Compte;
+        return compte.role == Role.ROLE_UTILISATEUR;
+      }
+      return false;
     }
-    return false;
+    return true;
   }
-
 }
