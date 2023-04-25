@@ -12,7 +12,7 @@ export class ChoixAvatarComponent {
   compte!:Compte;
 
   @Input()
-  avatar!:string;
+  avatar:string='';
 
   changerAvatar(chemin:string){
     this.compte.avatar=chemin;
