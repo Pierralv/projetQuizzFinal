@@ -1,10 +1,10 @@
 import { Question } from "./question";
 
 export class Theme {
-	public get questions(): Set<Question> | undefined {
+	public get questions(): Question[] | undefined {
 		return this._questions;
 	}
-	public set questions(value: Set<Question> | undefined) {
+	public set questions(value: Question[] | undefined) {
 		this._questions = value;
 	}
 	public get nom(): string | undefined {
@@ -19,5 +19,5 @@ export class Theme {
 	public set id(value: number | undefined) {
 		this._id = value;
 	}
-	constructor(private _id?: number, private _nom?: string, private _questions?: Set<Question>) {}
+	constructor(private _id?: number, private _nom?: string, private _questions?: Question[]) {}
 }
