@@ -13,7 +13,7 @@ export class QuizzService {
 	constructor(private http: HttpClient, private convert: ObjectToJsonService) {}
 
 	//themes
-	public allThemes(): Observable<Theme[]> {
+	public getAllThemes(): Observable<Theme[]> {
 		return this.http.get<Theme[]>(themeRest);
 	}
 
@@ -22,8 +22,16 @@ export class QuizzService {
 	}
 
 	//questions
-	public allQuestions(): Observable<Question[]> {
+	public getAllQuestions(): Observable<Question[]> {
 		return this.http.get<Question[]>(`${questionRest}/all`);
+	}
+
+	public getAllQuestionsRandom(): Observable<Question[]> {
+		return this.http.get<Question[]>(`${questionRest}/all/random`);
+	}
+
+	public getQuestionRandomByTheme(id: number): Observable<Question[]> {
+		return this.http.get<Question[]>(`${themeRest}/${id}/questions/random`);
 	}
 
 	public getQuestionById(id: number): Observable<Question> {
