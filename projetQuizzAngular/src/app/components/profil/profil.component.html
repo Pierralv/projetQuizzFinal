@@ -40,7 +40,7 @@
 </ng-container>
 
 <ng-container *ngIf="modif">
-  <app-modifier-profil [compte]="compte"></app-modifier-profil>
+  <app-modifier-profil [compte]="compte" (modifBooleanEvent)="traitementModifBoolean($event)"></app-modifier-profil>
 </ng-container>
 
 <div *ngIf="!modif" class="text-center mt-5">

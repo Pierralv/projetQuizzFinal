@@ -37,6 +37,10 @@ export class ProfilComponent implements OnInit {
     this.modif = !this.modif
   }
 
+  traitementModifBoolean(modif: boolean){
+    this.modif = modif;
+  }
+
   suppression(id: number) {
     this.messageSuppression = true;
     setTimeout(()=>{
