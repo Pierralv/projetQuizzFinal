@@ -70,7 +70,7 @@ export class InscriptionComponent implements OnInit {
       avatar: this.avatar,
     };
     this.compteSrv.inscription(compteJson).subscribe((compte) => {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/connexion');
     })
   }
 

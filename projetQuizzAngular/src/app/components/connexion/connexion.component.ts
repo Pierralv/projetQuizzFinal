@@ -23,7 +23,7 @@ export class ConnexionComponent {
           this.showError =false;
           sessionStorage.setItem('token','Basic ' +window.btoa(this.pseudo + ':'+ this.motDePasse));
           sessionStorage.setItem('compte', JSON.stringify(infos));
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/profil');
         },
         error: (error: any) => {
           console.debug(error);
