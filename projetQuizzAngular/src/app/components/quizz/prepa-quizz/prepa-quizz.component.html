@@ -1,23 +1,27 @@
 <h2>Prépa quizz</h2>
 <div>
-	<label for="theme"
-		>choisissez un theme:
-		<select [(ngModel)]="selectedTheme" (change)="selected()">
-			<option *ngFor="let t of themes" [ngValue]="t">
-				{{ t.nom }}
-			</option>
-		</select>
-	</label>
-</div>
-<div>
-	<label for="nbQuestion"
-		>Nombre de questions du quizz:
-		<input type="radio" value="10" name="nbQuestion" ngModel /> 10
-		<input type="radio" value="15" name="nbQuestion" ngModel /> 15
-		<input type="radio" value="20" name="nbQuestion" ngModel /> 20
-		<input type="radio" value="30" name="nbQuestion" ngModel /> 30
-	</label>
-</div>
-<div>
-	<a routerLink="/quizz">commencer le quizz</a>
+	<div>
+		<label for="theme"
+			>choisissez un theme:
+			<select [(ngModel)]="selectedTheme">
+				<option *ngFor="let t of themes" [ngValue]="t.id">
+					{{ t.nom }}
+				</option>
+			</select>
+		</label>
+	</div>
+	<div>
+		<label for="nbQuestion"
+			>Nombre de questions du quizz:
+			<input type="radio" value="5" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 5
+			<input type="radio" value="10" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 10
+			<input type="radio" value="15" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 15
+			<input type="radio" value="20" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 20
+		</label>
+	</div>
+	<div>
+		<button (click)="sendPrepQuizz()" class="btn btn-outline-primary">
+			commencer le quizz
+		</button>
+	</div>
 </div>
