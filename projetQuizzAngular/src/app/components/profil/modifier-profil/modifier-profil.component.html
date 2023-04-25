@@ -1,52 +1,60 @@
-<div class="row mt-4">
-  <p class="fw-bold mt-3 mb-5">Modifier le compte</p>
-  <form (ngSubmit)="modifier(form)" #form="ngForm">
-    <div class="alert alert-danger" *ngIf="showError">
-      information incorrectes
-    </div>
-    <div class="form-group">
-      <label
-        >Nom:<input
-          class="form-control"
-          name="inputNom"
-          [(ngModel)]="compte.nom"
-          required
-          #nomCtrl="ngModel"
-        />
-      </label>
-      <span *ngIf="nomCtrl.dirty && nomCtrl.invalid"> *obligatoire</span>
-    </div>
-    <div class="form-group mt-2">
-      <label
-        >Prenom:<input
-          name="inputPrenom"
-          class="form-control"
-          [(ngModel)]="compte.prenom"
-          required
-          #prenomCtrl="ngModel"
-      /></label>
-      <span *ngIf="prenomCtrl.dirty && prenomCtrl.invalid"> *obligatoire</span>
-    </div>
-    <div class="form-group mt-2">
-      <label
-        >Mail:<input
-          type="email"
-          name="inputMail"
-          class="form-control"
-          [(ngModel)]="compte.email"
-          required
-          #mailCtrl="ngModel"
-      /></label>
-      <span *ngIf="mailCtrl.dirty && mailCtrl.invalid"> *obligatoire</span>
-    </div>
-    <div class="form-group">
-      <button
-        type="submit"
-        class="btn btn-outline-primary btn-lg mt-5"
-        [disabled]="form.invalid"
-      >
-        envoyer
-      </button>
-    </div>
-  </form>
+<div class="row">
+  <div class="mt-4 col-6">
+    <p class="fw-bold mt-3 mb-5">Modifier les informations du compte</p>
+    <form (ngSubmit)="modifier(form)" #form="ngForm">
+      <div class="alert alert-danger" *ngIf="showError">
+        information incorrectes
+      </div>
+      <div class="form-group">
+        <label
+          >Nom:<input
+            class="form-control"
+            name="inputNom"
+            [(ngModel)]="compte.nom"
+            required
+            #nomCtrl="ngModel"
+          />
+        </label>
+        <span *ngIf="nomCtrl.dirty && nomCtrl.invalid"> *obligatoire</span>
+      </div>
+      <div class="form-group mt-2">
+        <label
+          >Prenom:<input
+            name="inputPrenom"
+            class="form-control"
+            [(ngModel)]="compte.prenom"
+            required
+            #prenomCtrl="ngModel"
+        /></label>
+        <span *ngIf="prenomCtrl.dirty && prenomCtrl.invalid">
+          *obligatoire</span
+        >
+      </div>
+      <div class="form-group mt-2">
+        <label
+          >Mail:<input
+            type="email"
+            name="inputMail"
+            class="form-control"
+            [(ngModel)]="compte.email"
+            required
+            #mailCtrl="ngModel"
+        /></label>
+        <span *ngIf="mailCtrl.dirty && mailCtrl.invalid"> *obligatoire</span>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-outline-primary btn-lg mt-5"
+          [disabled]="form.invalid"
+        >
+          envoyer
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-6 mt-4">
+    <p class="fw-bold mt-3 mb-5">Modifier l'avatar:</p>
+    <app-choix-avatar [compte]="compte"></app-choix-avatar>
+  </div>
 </div>

@@ -3,7 +3,7 @@
     <h2>Bienvenue {{ compte.pseudo }}</h2>
   </div>
   <div class="col-6 text-center">
-    <img id="avatar" src="assets/img/article1-istock.jpg" alt="Avatar" />
+    <img id="avatar" [src]="compte.avatar" alt="Avatar" />
   </div>
 </div>
 <ng-container *ngIf="!modif">

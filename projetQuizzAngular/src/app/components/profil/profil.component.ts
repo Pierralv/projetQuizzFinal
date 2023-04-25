@@ -20,11 +20,14 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCompte();
+
   }
 
   initCompte() {
     if (sessionStorage.getItem('compte')) {
       this.compte = JSON.parse(sessionStorage.getItem('compte')!) as Compte;
+      //en attendant l'inscription avec avatar (en dur)
+      this.compte.avatar = 'assets/img/article1-istock.jpg';
     }
   }
 
@@ -44,6 +47,6 @@ export class ProfilComponent implements OnInit {
         this.router.navigateByUrl('/home');
       });
     }
-    ,10000);
+    ,3000);
   }
 }
