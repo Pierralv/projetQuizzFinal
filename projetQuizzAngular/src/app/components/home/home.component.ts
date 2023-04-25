@@ -5,17 +5,13 @@ import { ConnexionService } from 'src/app/services/connexion.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-
-  get welcome() {
-    let _welcome = 'bonjour ';
+  get showConnexion() {
     if (sessionStorage.getItem('compte')) {
-      let compte = JSON.parse(sessionStorage.getItem('compte')!) as Compte;
-      _welcome = _welcome + compte.pseudo;
+      return false;
     }
-    return _welcome;
+    return true;
   }
-
 }

@@ -156,8 +156,6 @@
 </form>
 <img [src]="avatar" alt="avatar" id="avatar" />
 <app-choix-avatar
-  [compte]="compte"
   [avatar]="avatar"
-  (AvatarStringEvent)="traitementAvatarInscription($event)"
-  (AvatarCompteEvent)="traitementAvatarCompte($event)"
+  (AvatarEvent)="traitementAvatarInscription($event)"
 ></app-choix-avatar>

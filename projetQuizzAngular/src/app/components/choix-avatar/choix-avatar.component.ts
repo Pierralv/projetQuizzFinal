@@ -15,18 +15,17 @@ export class ChoixAvatarComponent {
   avatar!:string;
 
   @Output()
-  AvatarCompteEvent: EventEmitter<string> = new EventEmitter();
+  AvatarEvent: EventEmitter<string> = new EventEmitter();
 
-  @Output()
-  AvatarStringEvent: EventEmitter<string> = new EventEmitter();
 
   changerAvatar(chemin:string){
-    this.compte.avatar=chemin;
-    this.AvatarCompteEvent.emit(this.compte.avatar);
+    if(this.compte){
+      this.compte.avatar=chemin;
+      this.AvatarEvent.emit(this.compte.avatar);
+    } else {
+      this.avatar = chemin;
+      this.AvatarEvent.emit(this.avatar)
+    }
   }
-  
-  changerAvatarString(chemin:string){
-    this.avatar = chemin;
-    this.AvatarStringEvent.emit(this.avatar);
-  }
+
 }
