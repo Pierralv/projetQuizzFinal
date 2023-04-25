@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent, canActivate: [AnonymousGuardService]},
   {path: 'profil', component: ProfilComponent, canActivate: [UtilisateurGuardService]},
   {path: '', redirectTo:'/home', pathMatch:'full'},
-  {path: 'quizz', component: QuizzComponent, canActivate: [AnonymousGuardService, UtilisateurGuardService]},
+  {path: 'quizz', component: QuizzComponent, canActivate: [AnonymousGuardService || UtilisateurGuardService]},
   {path: 'statistiques', component : StatistiquesComponent, canActivate: [UtilisateurGuardService]},
   {path: 'theme', component : ThemeComponent, canActivate: [AdminGuardService] },
   {path: 'prep', component: PrepaQuizzComponent, canActivate: [AnonymousGuardService || UtilisateurGuardService]}
