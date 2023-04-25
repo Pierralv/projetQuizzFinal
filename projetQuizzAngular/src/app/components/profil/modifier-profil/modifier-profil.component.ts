@@ -18,4 +18,8 @@ export class ModifierProfilComponent {
   modifier(form: NgForm) {
     console.log(this.compte);
   }
+
+  traitementAvatar(avatar:string){
+    this.compte.avatar = avatar;
+  }
 }

@@ -12,16 +12,21 @@ export class ChoixAvatarComponent {
   compte!:Compte;
 
   @Input()
-  avatar:string='';
+  avatar!:string;
+
+  @Output()
+  AvatarCompteEvent: EventEmitter<string> = new EventEmitter();
+
+  @Output()
+  AvatarStringEvent: EventEmitter<string> = new EventEmitter();
 
   changerAvatar(chemin:string){
     this.compte.avatar=chemin;
+    this.AvatarCompteEvent.emit(this.compte.avatar);
   }
-
+  
   changerAvatarString(chemin:string){
-    console.log(this.avatar);
     this.avatar = chemin;
-    console.log(this.avatar);
+    this.AvatarStringEvent.emit(this.avatar);
   }
-
 }
