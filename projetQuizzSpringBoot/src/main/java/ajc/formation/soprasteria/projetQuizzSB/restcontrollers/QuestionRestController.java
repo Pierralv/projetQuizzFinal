@@ -1,5 +1,6 @@
 package ajc.formation.soprasteria.projetQuizzSB.restcontrollers;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -38,7 +39,15 @@ public class QuestionRestController {
 	public List<Question> getAll(){
 		return questionSrv.getAll();
 	}
-	
+
+	@GetMapping("/all/random")
+	@JsonView(JsonViews.QuestionWithReponses.class)
+	public List<Question> getAllRandom(){
+		List<Question> questionAllRandom = questionSrv.getAll();
+		Collections.shuffle(questionAllRandom);
+		return questionAllRandom;
+	}
+
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.Question.class)
 	public Question getById(@PathVariable Long id) {
@@ -86,4 +95,6 @@ public class QuestionRestController {
 	public void delete(@PathVariable Long id) {
 		questionSrv.deleteById(id);
 	}
+
+	
 }
