@@ -1,5 +1,6 @@
 package ajc.formation.soprasteria.projetQuizzSB.restcontrollers;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,8 +22,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ajc.formation.soprasteria.projetQuizzSB.entities.Question;
 import ajc.formation.soprasteria.projetQuizzSB.entities.Theme;
 import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
+import ajc.formation.soprasteria.projetQuizzSB.services.QuestionService;
 import ajc.formation.soprasteria.projetQuizzSB.services.ThemeService;
 
 @RestController
@@ -32,6 +35,8 @@ public class ThemeRestController {
 	
 	@Autowired
 	private ThemeService themeSrv;
+	@Autowired
+	private QuestionService questionSrv;
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Theme.class)
@@ -53,6 +58,14 @@ public class ThemeRestController {
 		Theme theme = null;
 		theme = themeSrv.getIdWithQuestions(id);
 		return theme;
+	}
+
+	@GetMapping("/{id}/questions/random")
+	@JsonView(JsonViews.QuestionWithReponses.class)
+	public List<Question> getQuestionsRandomByIdTheme(@PathVariable Long id){
+		List<Question> questionAllRandom = questionSrv.getByTheme(themeSrv.getById(id));
+		Collections.shuffle(questionAllRandom);
+		return questionAllRandom;
 	}
 	
 	@PostMapping("")
