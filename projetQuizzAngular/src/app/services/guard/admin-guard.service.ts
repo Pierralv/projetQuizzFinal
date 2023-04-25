@@ -20,7 +20,7 @@ export class AdminGuardService {
   | Promise<boolean | UrlTree> {
     if (sessionStorage.getItem('compte')) {
       let compte:Compte =JSON.parse(
-        sessionStorage.getItem('compyte')!
+        sessionStorage.getItem('compte')!
       ) as Compte;
       return compte.role == Role.ROLE_ADMIN;
     }
