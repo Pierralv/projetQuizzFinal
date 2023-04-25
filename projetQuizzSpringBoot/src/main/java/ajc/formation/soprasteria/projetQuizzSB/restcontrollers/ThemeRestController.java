@@ -60,6 +60,7 @@ public class ThemeRestController {
 		return theme;
 	}
 
+	//get mapping pour recuperer toutes les questions d'un theme randomisees 
 	@GetMapping("/{id}/questions/random")
 	@JsonView(JsonViews.QuestionWithReponses.class)
 	public List<Question> getQuestionsRandomByIdTheme(@PathVariable Long id){
