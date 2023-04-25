@@ -42,6 +42,7 @@ public class Compte implements UserDetails {
 	@JsonView(JsonViews.Simple.class)
 	private String pseudo;
 	@Column(name="compte_avatar")
+	@JsonView(JsonViews.Simple.class)
 	private String avatar;
 	@Column(name="compte_email")
 	@JsonView(JsonViews.Simple.class)

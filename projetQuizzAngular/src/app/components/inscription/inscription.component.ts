@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { Compte } from 'src/app/model/compte';
 import { CompteServiceService } from 'src/app/services/compte-service.service';
 
 @Component({
@@ -13,9 +14,11 @@ export class InscriptionComponent implements OnInit {
   constructor(private compteSrv: CompteServiceService, private router: Router) {}
   form!: FormGroup;
   showPassword = false;
-  avatar!: string;
+  avatar: string = 'assets/img/sans_avatar.jpg';
+  compte!: Compte;
 
   ngOnInit(): void {
+    this.compte = new Compte();
     this.form = new FormGroup({
       prenom: new FormControl('', Validators.required),
       nom: new FormControl('', Validators.required),
@@ -76,6 +79,12 @@ export class InscriptionComponent implements OnInit {
     console.log(this.showPassword);
   }
 
+  traitementAvatarInscription(avatar: string) {
+    this.avatar = avatar;
+  }
 
+  traitementAvatarCompte(avatar: string) {
+    this.compte.avatar = avatar;
+  }
 
 }

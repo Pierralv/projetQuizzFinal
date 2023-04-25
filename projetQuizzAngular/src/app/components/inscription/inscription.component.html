@@ -138,7 +138,6 @@
       </div>
     </ng-container>
   </ng-container>
-  <app-choix-avatar [avatar]="avatar"></app-choix-avatar>
   <div>
     <button
       type="submit"
@@ -155,3 +154,10 @@
     >
   </div>
 </form>
+<img [src]="avatar" alt="avatar" id="avatar" />
+<app-choix-avatar
+  [compte]="compte"
+  [avatar]="avatar"
+  (AvatarStringEvent)="traitementAvatarInscription($event)"
+  (AvatarCompteEvent)="traitementAvatarCompte($event)"
+></app-choix-avatar>
