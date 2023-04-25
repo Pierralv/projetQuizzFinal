@@ -10,6 +10,7 @@ import { StatistiquesComponent } from './components/statistiques/statistiques.co
 import { ThemeComponent } from './components/theme/theme.component';
 import { UtilisateurGuardService } from './services/guard/utilisateur-guard.service';
 import { AdminGuardService } from './services/guard/admin-guard.service';
+import { PrepaQuizzComponent } from './components/quizz/prepa-quizz/prepa-quizz.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: 'quizz', component: QuizzComponent, canActivate: [AnonymousGuardService, UtilisateurGuardService]},
   {path: 'statistiques', component : StatistiquesComponent, canActivate: [UtilisateurGuardService]},
-  {path: 'theme', component : ThemeComponent, canActivate: [AdminGuardService] }
+  {path: 'theme', component : ThemeComponent, canActivate: [AdminGuardService] },
+  {path: 'prep', component: PrepaQuizzComponent, canActivate: [AnonymousGuardService, UtilisateurGuardService]}
+
 
 ];
 
