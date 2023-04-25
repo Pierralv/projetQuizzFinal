@@ -26,8 +26,6 @@ export class ProfilComponent implements OnInit {
   initCompte() {
     if (sessionStorage.getItem('compte')) {
       this.compte = JSON.parse(sessionStorage.getItem('compte')!) as Compte;
-      //en attendant l'inscription avec avatar (en dur)
-      this.compte.avatar = 'assets/img/article1-istock.jpg';
     }
   }
 
