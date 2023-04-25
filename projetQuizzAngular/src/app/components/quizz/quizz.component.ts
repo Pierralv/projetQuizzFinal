@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { Observable } from "rxjs";
 import { Question } from "src/app/model/question";
-import { Theme } from "src/app/model/theme";
-import { QuizzService } from "src/app/services/quizz.service";
 
 @Component({
 	selector: "app-quizz",
@@ -11,21 +7,19 @@ import { QuizzService } from "src/app/services/quizz.service";
 	styleUrls: ["./quizz.component.css"],
 })
 export class QuizzComponent implements OnInit {
-	allQuestions: Question[] = [];
+	questionsQuizz: Question[] = [];
+	nbQuestionQuizz!: number;
+	showPrepaQuizz: boolean = true;
 
-	@Input()
-	questions: Question[] = [];
+	constructor() {}
 
-	constructor(private quizzSrv: QuizzService, private router: Router) {}
+	ngOnInit(): void {}
 
-	ngOnInit(): void {
-		this.loadQuestions();
-		console.log(this.questions);
-	}
-
-	loadQuestions() {
-		this.quizzSrv.allQuestions().subscribe((allQuestions: Question[]) => {
-			this.allQuestions = allQuestions;
-		});
+	loadQuestionsQuizz(questions: Question[]) {
+		this.questionsQuizz = questions;
+		this.nbQuestionQuizz = this.questionsQuizz.length;
+		console.log(this.questionsQuizz);
+		console.log(this.nbQuestionQuizz);
+		this.showPrepaQuizz = false;
 	}
 }

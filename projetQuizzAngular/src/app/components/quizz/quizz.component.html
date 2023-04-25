@@ -1,5 +1,16 @@
-<h2>quizz</h2>
-
-<div *ngFor="let q of questions">
-	<div>Question n° {{ q.enonceQuestion }}</div>
+<div *ngIf="showPrepaQuizz; else quizzBlock">
+	<app-prepa-quizz (sendQuestionsEven)="loadQuestionsQuizz($event)"></app-prepa-quizz>
 </div>
+<br />
+
+<ng-template #quizzBlock>
+	<h2>Quizz</h2>
+	<div *ngFor="let q of questionsQuizz">
+		<div>
+			Question n° : <br />
+			{{ q.enonceQuestion }}
+		</div>
+		<div *ngFor="let r of q.reponses">{{ r.enonceReponse }}</div>
+	</div>
+	<!-- <app-question></app-question> -->
+</ng-template>
