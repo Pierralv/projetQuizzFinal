@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question';
 import { Reponse } from 'src/app/model/reponse';
 import { Theme } from 'src/app/model/theme';
@@ -11,7 +12,7 @@ import { QuizzService } from 'src/app/services/quizz.service';
   styleUrls: ['./edit-modif-quizz.component.css'],
 })
 export class EditModifQuizzComponent implements OnInit {
-  constructor(private quizzSrv: QuizzService) {}
+  constructor(private quizzSrv: QuizzService, private router: Router) {}
 
   form: FormGroup;
 
@@ -27,7 +28,7 @@ export class EditModifQuizzComponent implements OnInit {
       reponseB: new FormControl('', Validators.required),
       reponseC: new FormControl('', Validators.required),
       reponseD: new FormControl('', Validators.required),
-      bonneReponse: new FormControl('', Validators.required),
+      // bonneReponse: new FormControl('', Validators.required),
     });
     this.loadThemes();
   }
@@ -39,6 +40,8 @@ export class EditModifQuizzComponent implements OnInit {
   }
 
   submit() {
+    console.log('submit !');
+
     let questionJson = {
       enonceQuestion: this.form.get('enonceQuestion').value,
       theme: this.form.get('theme').value,
@@ -47,7 +50,6 @@ export class EditModifQuizzComponent implements OnInit {
           enonceReponse: this.form.get('reponseA').value,
           bonneReponse: false,
         },
-        ,
         {
           enonceReponse: this.form.get('reponseB').value,
           bonneReponse: false,
@@ -62,6 +64,10 @@ export class EditModifQuizzComponent implements OnInit {
         },
       ],
     };
-    this.quizzSrv.create(questionJson)
+    console.log(questionJson);
+    this.quizzSrv.create(questionJson).subscribe(()=>{
+      this.router.navigateByUrl('/modifQuizz')
+    })
+    
   }
 }

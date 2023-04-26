@@ -16,8 +16,10 @@
     <th></th>
   </thead>
   <tbody>
-    <tr>
-      <td *ngFor="let q of questionsByTheme">{{ q.enonceQuestion }}</td>
+    <tr *ngFor="let q of questionsByTheme">
+      <td>
+        {{ q.enonceQuestion }}
+      </td>
       <td><button class="btn btn-primary">Modifier</button></td>
       <td><button class="btn btn-danger">Supprimer</button></td>
     </tr>
@@ -25,5 +27,10 @@
 </table>
 
 <div class="text-center mt-5">
- <a routerLink="/editModifQuizz" class="btn btn-success" routerLinkActive="active">Créer une question</a>
+  <a
+    routerLink="/editModifQuizz"
+    class="btn btn-success"
+    routerLinkActive="active"
+    >Créer une question</a
+  >
 </div>
