@@ -43,7 +43,7 @@ export class QuizzService {
 		return this.http.get<Question>(`${questionRest}/${id}/reponses`);
 	}
 
-	public create(question: any): Observable<any> {
+	public createQuestion(question: any): Observable<any> {
 		return this.http.post(questionRest, question);
 	}
 
@@ -59,6 +59,10 @@ export class QuizzService {
 	}
 
 	//reponses
+
+  public createReponse(reponse:any): Observable<any>{
+    return this.http.post(reponseRest, reponse);
+  }
 
 	public getReponseById(id: number): Observable<Reponse> {
 		return this.http.get<Reponse>(`${reponseRest}/${id}/questionreponses`);
