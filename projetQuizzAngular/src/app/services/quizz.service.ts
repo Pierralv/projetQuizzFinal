@@ -2,9 +2,10 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Question } from "../model/question";
-import { questionRest, themeRest } from "../env";
+import { questionRest, reponseRest, themeRest } from "../env";
 import { Theme } from "../model/theme";
 import { ObjectToJsonService } from "./object-to-json.service";
+import { Reponse } from "../model/reponse";
 
 @Injectable({
 	providedIn: "root",
@@ -55,5 +56,11 @@ export class QuizzService {
 
 	public deleteById(id: number): Observable<void> {
 		return this.http.delete<void>(`${questionRest}/${id}`);
+	}
+
+	//reponses
+
+	public getReponseById(id: number): Observable<Reponse> {
+		return this.http.get<Reponse>(`${reponseRest}/${id}/questionreponses`);
 	}
 }
