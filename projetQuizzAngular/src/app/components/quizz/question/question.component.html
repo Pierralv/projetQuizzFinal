@@ -3,8 +3,8 @@
 	{{ question.enonceQuestion }}
 </div>
 <div *ngIf="showQuestion">
-	<div>
-		<label for="reponse" *ngFor="let rep of question.reponses; let i = index">
+	<div *ngFor="let rep of question.reponses; let i = index">
+		<label for="reponse">
 			<input
 				type="radio"
 				id="question{{ i }}"
@@ -14,9 +14,18 @@
 			/>{{ rep.enonceReponse }}
 		</label>
 	</div>
+	<br />
 	<button (click)="voirResults()" class="btn btn-primary">resultat</button>
 </div>
 
 <div *ngIf="!showQuestion">
-	<div>resultats question</div>
+	<ng-container *ngIf="value == 'true'; else mauvaiseReponseBlock">
+		<p>Bravo ! Tu as trouvé la bonne réponse. <br /></p>
+	</ng-container>
+	<ng-template #mauvaiseReponseBlock>
+		<p>
+			Raté ! Vous avez sélectionner la mauvaise réponse, la bonne réponse est : <br />
+			{{ bonneReponse.enonceReponse }}<br />
+		</p>
+	</ng-template>
 </div>
