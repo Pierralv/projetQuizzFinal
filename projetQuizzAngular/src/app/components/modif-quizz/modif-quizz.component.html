@@ -1,1 +1,29 @@
-<p>modif-quizz works!</p>
+<h2 class="text-center">Modifier Quizz</h2>
+<hr />
+<label
+  >Thème
+  <select [(ngModel)]="selectedTheme" (change)="selected()">
+    <option *ngFor="let t of themes" [ngValue]="t">
+      {{ t.nom }}
+    </option>
+  </select>
+</label>
+<h3>Questions</h3>
+<table class="table">
+  <thead>
+    <th>Enoncé</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td *ngFor="let q of questionsByTheme">{{ q.enonceQuestion }}</td>
+      <td><button class="btn btn-primary">Modifier</button></td>
+      <td><button class="btn btn-danger">Supprimer</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-center mt-5">
+ <a routerLink="/editModifQuizz" class="btn btn-success" routerLinkActive="active">Créer une question</a>
+</div>

@@ -1,24 +1,25 @@
 <div class="flex-container">
-<nav>
-  <app-lien etiquetteLien="home" lien="/home"></app-lien>
-  <ng-container *ngIf="admin" >
-    <app-lien etiquetteLien="modifier quizz" lien="/modifQuizz"></app-lien>
-    <app-lien etiquetteLien="" lien=""></app-lien>
-  </ng-container>
-  <ng-container *ngIf="utilisateur">
-    <app-lien etiquetteLien="profil" lien="/profil"></app-lien>
-  </ng-container>
-  <ng-container *ngIf="!connecte" >
-    <app-lien etiquetteLien="inscription" lien="/inscription"></app-lien>
-    <app-lien etiquetteLien="connexion" lien="/connexion"></app-lien>
-  <ng-container *ngIf="!admin">
-    <app-lien etiquetteLien="jouer" lien="/quizz"></app-lien>
-  </ng-container>
-  </ng-container>
-  <ng-container *ngIf="!admin" >
+  <nav>
     <app-lien etiquetteLien="home" lien="/home"></app-lien>
-  </ng-container>
-  <button *ngIf="connecte" class="btn btn-link" (click)="deconnexion()">Déconnexion</button>
-</nav>
+    <ng-container *ngIf="admin">
+      <app-lien etiquetteLien="modifier quizz" lien="/modifQuizz"></app-lien>
+      <app-lien etiquetteLien="" lien=""></app-lien>
+    </ng-container>
+    <ng-container *ngIf="utilisateur">
+      <app-lien etiquetteLien="profil" lien="/profil"></app-lien>
+    </ng-container>
+    <ng-container *ngIf="!connecte">
+      <app-lien etiquetteLien="inscription" lien="/inscription"></app-lien>
+      <app-lien etiquetteLien="connexion" lien="/connexion"></app-lien>
+      <ng-container *ngIf="!admin">
+        <app-lien etiquetteLien="jouer" lien="/quizz"></app-lien>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!admin">
+      <app-lien etiquetteLien="home" lien="/home"></app-lien>
+    </ng-container>
+    <button *ngIf="connecte" class="btn btn-link" (click)="deconnexion()">
+      Déconnexion
+    </button>
+  </nav>
 </div>
-
