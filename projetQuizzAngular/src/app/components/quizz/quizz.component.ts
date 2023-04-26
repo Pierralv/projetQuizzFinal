@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Question } from "src/app/model/question";
+import { QuestionComponent } from "./question/question.component";
 
 @Component({
 	selector: "app-quizz",
@@ -12,12 +13,14 @@ export class QuizzComponent implements OnInit {
 	index: number = 0;
 	showPrepaQuizz: boolean = true;
 	showQuestion: boolean;
+  boutonSuite: boolean = true;
 
 	constructor() {}
 
 	ngOnInit(): void {
 		this.showQuestion = true;
 	}
+
 
 	loadQuestionsQuizz(questions: Question[]) {
 		this.questionsQuizz = questions;
@@ -28,9 +31,22 @@ export class QuizzComponent implements OnInit {
 	questionSuivante() {
 		this.index++;
 		this.showQuestion = true;
+    if(this.index == (this.questionsQuizz.length-1)) {
+      this.boutonSuite =false;
+    }
 	}
 
 	traitementBoolean(showQuestion: boolean) {
 		this.showQuestion = showQuestion;
 	}
+
+  showBoutons(){
+
+  }
+
+  finQuizz(){
+    // switch(this.questionsQuizz.length) {
+    //   case
+    // }
+  }
 }

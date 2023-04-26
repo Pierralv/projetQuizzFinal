@@ -1,19 +1,33 @@
 <div *ngIf="showPrepaQuizz; else quizzBlock">
-	<app-prepa-quizz (sendQuestionsEven)="loadQuestionsQuizz($event)"></app-prepa-quizz>
+  <app-prepa-quizz
+    (sendQuestionsEven)="loadQuestionsQuizz($event)"
+  ></app-prepa-quizz>
 </div>
 <br />
 
 <ng-template #quizzBlock>
-	<div>
-		<!-- *ngFor="let q of questionsQuizz" -->
-		<app-question
-			[numero]="index + 1"
-			[question]="questionsQuizz[index]"
-			(showQuestionEven)="traitementBoolean($event)"
-			[showQuestion]="showQuestion"
-		></app-question>
-		<ng-container>
-			<button (click)="questionSuivante()" class="btn btn-primary">question suivante</button>
-		</ng-container>
-	</div>
+  <div>
+    <!-- *ngFor="let q of questionsQuizz" -->
+    <app-question
+      [numero]="index + 1"
+      [question]="questionsQuizz[index]"
+      (showQuestionEven)="traitementBoolean($event)"
+      [showQuestion]="showQuestion"
+    ></app-question>
+    <div *ngIf="showBoutons">
+      <div *ngIf="boutonSuite; else boutonFinal">
+        <div>
+          <button (click)="questionSuivante()" class="btn btn-primary">
+            Question suivante
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #boutonFinal>
+  <div>
+    <button (click)="finQuizz()" class="btn btn-primary">Voir le score</button>
+  </div>
 </ng-template>
