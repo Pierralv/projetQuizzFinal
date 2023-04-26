@@ -8,7 +8,7 @@ import { Question } from "src/app/model/question";
 })
 export class QuizzComponent implements OnInit {
 	questionsQuizz: Question[] = [];
-	nbQuestionQuizz!: number;
+	nbQuestionQuizz: number;
 	showPrepaQuizz: boolean = true;
 
 	constructor() {}
@@ -17,9 +17,9 @@ export class QuizzComponent implements OnInit {
 
 	loadQuestionsQuizz(questions: Question[]) {
 		this.questionsQuizz = questions;
-		this.nbQuestionQuizz = this.questionsQuizz.length;
-		console.log(this.questionsQuizz);
-		console.log(this.nbQuestionQuizz);
 		this.showPrepaQuizz = false;
+		this.nbQuestionQuizz = this.questionsQuizz.length;
 	}
+
+	questionSuivante() {}
 }

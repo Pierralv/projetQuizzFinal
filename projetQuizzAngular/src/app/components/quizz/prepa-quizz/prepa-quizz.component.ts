@@ -40,7 +40,7 @@ export class PrepaQuizzComponent {
 				this.questionForQuizz = this.questionsByTheme.slice(0, this.nbQuestionQuizz);
 				this.sendQuestionsEven.emit(this.questionForQuizz);
 				// console.log(this.questionsByTheme);
-				// console.log(this.questionForQuizz);
+				console.log(this.questionForQuizz);
 			});
 	}
 }

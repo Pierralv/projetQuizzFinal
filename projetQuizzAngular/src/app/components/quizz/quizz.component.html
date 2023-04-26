@@ -4,13 +4,8 @@
 <br />
 
 <ng-template #quizzBlock>
-	<h2>Quizz</h2>
 	<div *ngFor="let q of questionsQuizz">
-		<div>
-			Question n° : <br />
-			{{ q.enonceQuestion }}
-		</div>
-		<div *ngFor="let r of q.reponses">{{ r.enonceReponse }}</div>
+		<app-question [numero]="questionsQuizz.indexOf(q) + 1" [question]="q"></app-question>
+		<!-- <button (click)="questionSuivante()" class="btn btn-primary">question suivante</button> -->
 	</div>
-	<!-- <app-question></app-question> -->
 </ng-template>
