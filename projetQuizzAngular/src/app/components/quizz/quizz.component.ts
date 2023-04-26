@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Question } from "src/app/model/question";
-import { QuestionComponent } from "./question/question.component";
 
 @Component({
 	selector: "app-quizz",
@@ -13,14 +12,15 @@ export class QuizzComponent implements OnInit {
 	index: number = 0;
 	showPrepaQuizz: boolean = true;
 	showQuestion: boolean;
-  boutonSuite: boolean = true;
+	boutonSuite: boolean = true;
+	points!: number;
+	score!: number;
 
 	constructor() {}
 
 	ngOnInit(): void {
 		this.showQuestion = true;
 	}
-
 
 	loadQuestionsQuizz(questions: Question[]) {
 		this.questionsQuizz = questions;
@@ -31,22 +31,25 @@ export class QuizzComponent implements OnInit {
 	questionSuivante() {
 		this.index++;
 		this.showQuestion = true;
-    if(this.index == (this.questionsQuizz.length-1)) {
-      this.boutonSuite =false;
-    }
+		if (this.index == this.questionsQuizz.length - 1) {
+			this.boutonSuite = false;
+		}
 	}
 
 	traitementBoolean(showQuestion: boolean) {
 		this.showQuestion = showQuestion;
 	}
 
-  showBoutons(){
+	traitementPts(pointsQuest: number) {
+		this.points = pointsQuest;
+		console.log(this.points);
+		this.score = (this.points / this.nbQuestionQuizz) * 10;
+		console.log(this.score);
+	}
 
-  }
-
-  finQuizz(){
-    // switch(this.questionsQuizz.length) {
-    //   case
-    // }
-  }
+	finQuizz() {
+		// switch(this.questionsQuizz.length) {
+		//   case
+		// }
+	}
 }

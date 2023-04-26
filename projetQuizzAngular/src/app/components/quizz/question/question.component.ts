@@ -1,5 +1,5 @@
 import { QuizzService } from "src/app/services/quizz.service";
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Question } from "src/app/model/question";
 import { Reponse } from "src/app/model/reponse";
 
@@ -21,19 +21,16 @@ export class QuestionComponent {
 	@Output()
 	showQuestionEven: EventEmitter<boolean> = new EventEmitter();
 
+	@Output()
+	sendPtsEven: EventEmitter<number> = new EventEmitter();
+
 	value!: string;
 	bonneReponse!: Reponse;
-
-	constructor(private quizzSrv: QuizzService) {}
+	points: number = 0;
 
 	getValue(ev: Event) {
 		this.value = (ev.target as HTMLInputElement).value;
 		console.log(this.value);
-		// if (this.value == "true") {
-		// 	console.log("if vrai");
-		// } else {
-		// 	console.log("else");
-		// }
 	}
 
 	voirResults() {
@@ -43,5 +40,12 @@ export class QuestionComponent {
 			if (rep.bonneReponse) this.bonneReponse = rep;
 		});
 		console.log(this.bonneReponse);
+		if (this.value == "true") {
+			this.points++;
+		} else {
+			this.points = this.points - 0.5;
+		}
+		console.log(this.points);
+		this.sendPtsEven.emit(this.points);
 	}
 }
