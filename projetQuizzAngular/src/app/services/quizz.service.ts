@@ -42,9 +42,9 @@ export class QuizzService {
 		return this.http.get<Question>(`${questionRest}/${id}/reponses`);
 	}
 
-	// public create(question: Question): Observable<Question> {
-	// 	return this.http.post<Question>(questionRest, this.convert.questionToJson(question));
-	// }
+	public create(question: Question): Observable<Question> {
+		return this.http.post<Question>(questionRest, question);
+	}
 
 	// public update(question: Question): Observable<Question> {
 	// 	return this.http.put<Question>(

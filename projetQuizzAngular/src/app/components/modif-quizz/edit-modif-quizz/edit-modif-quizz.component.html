@@ -1,1 +1,145 @@
-<p>edit-modif-quizz works!</p>
+<h2 class="text-center">Créer/modifier question</h2>
+<hr />
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="theme">Theme:</label>
+    <select class="select-control" id="theme" formControlName="theme">
+      <option *ngFor="let t of themes" [ngValue]="t" selected>
+        {{ t.nom }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="enonceQuestion">Enoncé:</label>
+    <textarea rows="3" id="enonceQuestion" class="form-control" formControlName="enonceQuestion"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="reponseA">Réponse A:</label>
+    <input id="reponseA" class="form-control" formControlName="reponseA" />
+    <input type="radio" name="bonneReponse" checked formControlName="bonneReponse" />
+  </div>
+  <div class="form-group">
+    <label for="reponseB">Réponse B:</label>
+    <input id="reponseB" class="form-control" formControlName="reponseB" />
+    <input type="radio" name="bonneReponse" formControlName="bonneReponse"  />
+  </div>
+  <div class="form-group">
+    <label for="reponseC">Réponse C:</label>
+    <input id="reponseC" class="form-control" formControlName="reponseC" />
+    <input type="radio" name="bonneReponse" formControlName="bonneReponse"  />
+  </div>
+  <div class="form-group">
+    <label for="reponseD">Réponse D:</label>
+    <input id="reponseD" class="form-control" formControlName="reponseD" />
+    <input type="radio" name="bonneReponse" formControlName="bonneReponse"  />
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-outline-primary btn-lg mt-5"
+      [disabled]="form.invalid"
+    >
+      envoyer
+    </button>
+  </div>
+</form>
+
+<!-- <form (ngSubmit)="submit(form)" #form="ngForm">
+  <div class="form-group">
+    <label for="selectTheme"
+      >Theme
+      <select
+        [(ngModel)]="selectedTheme"
+        class="select-control"
+        name="selectTheme"
+        required
+        #themeCtrl="ngModel"
+      >
+        <option *ngFor="let t of themes" [ngValue]="t" selected>
+          {{ t.nom }}
+        </option>
+      </select>
+    </label>
+    <span *ngIf="themeCtrl.dirty && themeCtrl.invalid"> *obligatoire</span>
+  </div>
+  <div class="form-group">
+    <label>Enoncé </label
+    ><textarea
+      rows="5"
+      class="form-control"
+      name="inputEnonce"
+      [(ngModel)]="question.enonceQuestion"
+      required
+      #enonceCtrl="ngModel"
+    >
+    </textarea>
+    <span *ngIf="enonceCtrl.dirty && enonceCtrl.invalid"> *obligatoire</span>
+  </div>
+  <div class="form-group mt-2">
+    <label
+      >Réponse A<input
+        name="inputReponseA"
+        class="form-control"
+        [(ngModel)]="reponseA.enonceReponse"
+        required
+        #ReponseACtrl="ngModel"
+    /></label>
+    <input type="radio" name="bonneReponse" checked />
+    <span *ngIf="ReponseACtrl.dirty && ReponseACtrl.invalid">
+      *obligatoire</span
+    >
+  </div>
+  <div class="form-group mt-2">
+    <label
+      >Réponse B<input
+        name="inputReponseB"
+        class="form-control"
+        [(ngModel)]="reponseB.enonceReponse"
+        required
+        #reponseBCtrl="ngModel"
+    /></label>
+    <input type="radio" name="bonneReponse" />
+    <span *ngIf="reponseBCtrl.dirty && reponseBCtrl.invalid">
+      *obligatoire</span
+    >
+  </div>
+  <div class="form-group mt-2">
+    <label
+      >Réponse C<input
+        name="inputReponseC"
+        class="form-control"
+        [(ngModel)]="reponseC.enonceReponse"
+        required
+        #reponseCCtrl="ngModel"
+    /></label>
+    <input type="radio" name="bonneReponse" />
+    <span *ngIf="reponseCCtrl.dirty && reponseCCtrl.invalid">
+      *obligatoire</span
+    >
+  </div>
+  <div class="form-group mt-2">
+    <label
+      >Réponse D<input
+        name="inputReponseD"
+        class="form-control"
+        [(ngModel)]="reponseD.enonceReponse"
+        required
+        #reponseDCtrl="ngModel"
+    /></label>
+    <input type="radio" name="bonneReponse" />
+    <span *ngIf="reponseDCtrl.dirty && reponseDCtrl.invalid">
+      *obligatoire</span
+    >
+  </div>
+
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-outline-primary btn-lg mt-5"
+      [disabled]="form.invalid"
+    >
+      envoyer
+    </button>
+  </div>
+</form> -->
