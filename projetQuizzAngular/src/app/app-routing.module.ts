@@ -12,6 +12,7 @@ import { UtilisateurGuardService } from './services/guard/utilisateur-guard.serv
 import { AdminGuardService } from './services/guard/admin-guard.service';
 import { PrepaQuizzComponent } from './components/quizz/prepa-quizz/prepa-quizz.component';
 import { NonAdminGuardService } from './services/guard/non-admin-guard.service';
+import { ModifQuizzComponent } from './components/modif-quizz/modif-quizz.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,11 +22,11 @@ const routes: Routes = [
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: 'quizz', component: QuizzComponent, canActivate: [NonAdminGuardService]},
   {path: 'statistiques', component : StatistiquesComponent, canActivate: [UtilisateurGuardService]},
-  {path: 'theme', component : ThemeComponent, canActivate: [AdminGuardService] },
+  {path: 'modifQuizz', component : ModifQuizzComponent, canActivate: [AdminGuardService] },
 
 
 
-  
+
 ];
 
 
