@@ -61,35 +61,35 @@ public class AllServiceTest {
 		questionService.createOrUpdate(new Question("enonce q2",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q2", false, questionService.getById(2L)));
 		reponseService.createOrUpdate(new Reponse("r2q2", false, questionService.getById(2L)));
-		reponseService.createOrUpdate(new Reponse("r3q2", false, questionService.getById(2L)));
+		reponseService.createOrUpdate(new Reponse("r3q2", true, questionService.getById(2L)));
 		reponseService.createOrUpdate(new Reponse("r4q3", false, questionService.getById(2L)));
 		//q3
 		questionService.createOrUpdate(new Question("enonce q3",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q3", false, questionService.getById(3L)));
 		reponseService.createOrUpdate(new Reponse("r2q3", false, questionService.getById(3L)));
 		reponseService.createOrUpdate(new Reponse("r3q3", false, questionService.getById(3L)));
-		reponseService.createOrUpdate(new Reponse("r4q3", false, questionService.getById(3L)));
+		reponseService.createOrUpdate(new Reponse("r4q3", true, questionService.getById(3L)));
 		//q4
 		questionService.createOrUpdate(new Question("enonce q4",themeService.getById((long) 2)));
-		reponseService.createOrUpdate(new Reponse("r1q4", false, questionService.getById(4L)));
+		reponseService.createOrUpdate(new Reponse("r1q4", true, questionService.getById(4L)));
 		reponseService.createOrUpdate(new Reponse("r2q4", false, questionService.getById(4L)));
 		reponseService.createOrUpdate(new Reponse("r3q4", false, questionService.getById(4L)));
 		reponseService.createOrUpdate(new Reponse("r4q4", false, questionService.getById(4L)));
 		//q5
 		questionService.createOrUpdate(new Question("enonce q5",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q5", false, questionService.getById(5L)));
-		reponseService.createOrUpdate(new Reponse("r2q5", false, questionService.getById(5L)));
+		reponseService.createOrUpdate(new Reponse("r2q5", true, questionService.getById(5L)));
 		reponseService.createOrUpdate(new Reponse("r3q5", false, questionService.getById(5L)));
 		reponseService.createOrUpdate(new Reponse("r4q5", false, questionService.getById(5L)));
 		//q6
 		questionService.createOrUpdate(new Question("enonce q6",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q6", false, questionService.getById(6L)));
 		reponseService.createOrUpdate(new Reponse("r2q6", false, questionService.getById(6L)));
-		reponseService.createOrUpdate(new Reponse("r3q6", false, questionService.getById(6L)));
+		reponseService.createOrUpdate(new Reponse("r3q6", true, questionService.getById(6L)));
 		reponseService.createOrUpdate(new Reponse("r4q6", false, questionService.getById(6L)));
 		//q7
 		questionService.createOrUpdate(new Question("enonce q7",themeService.getById((long) 2)));
-		reponseService.createOrUpdate(new Reponse("r1q7", false, questionService.getById(7L)));
+		reponseService.createOrUpdate(new Reponse("r1q7", true, questionService.getById(7L)));
 		reponseService.createOrUpdate(new Reponse("r2q7", false, questionService.getById(7L)));
 		reponseService.createOrUpdate(new Reponse("r3q7", false, questionService.getById(7L)));
 		reponseService.createOrUpdate(new Reponse("r4q7", false, questionService.getById(7L)));
@@ -97,12 +97,12 @@ public class AllServiceTest {
 		questionService.createOrUpdate(new Question("enonce q8",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q8", false, questionService.getById(8L)));
 		reponseService.createOrUpdate(new Reponse("r2q8", false, questionService.getById(8L)));
-		reponseService.createOrUpdate(new Reponse("r3q8", false, questionService.getById(8L)));
+		reponseService.createOrUpdate(new Reponse("r3q8", true, questionService.getById(8L)));
 		reponseService.createOrUpdate(new Reponse("r4q8", false, questionService.getById(8L)));
 		//q9
 		questionService.createOrUpdate(new Question("enonce q9",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q9", false, questionService.getById(9L)));
-		reponseService.createOrUpdate(new Reponse("r2q9", false, questionService.getById(9L)));
+		reponseService.createOrUpdate(new Reponse("r2q9", true, questionService.getById(9L)));
 		reponseService.createOrUpdate(new Reponse("r3q9", false, questionService.getById(9L)));
 		reponseService.createOrUpdate(new Reponse("r4q9", false, questionService.getById(9L)));
 		//q10
@@ -110,10 +110,10 @@ public class AllServiceTest {
 		reponseService.createOrUpdate(new Reponse("r1q10", false, questionService.getById(10L)));
 		reponseService.createOrUpdate(new Reponse("r2q10", false, questionService.getById(10L)));
 		reponseService.createOrUpdate(new Reponse("r3q10", false, questionService.getById(10L)));
-		reponseService.createOrUpdate(new Reponse("r4q10", false, questionService.getById(10L)));
+		reponseService.createOrUpdate(new Reponse("r4q10", true, questionService.getById(10L)));
 		//q11
 		questionService.createOrUpdate(new Question("enonce q11",themeService.getById((long) 2)));
-		reponseService.createOrUpdate(new Reponse("r1q11", false, questionService.getById(11L)));
+		reponseService.createOrUpdate(new Reponse("r1q11", true, questionService.getById(11L)));
 		reponseService.createOrUpdate(new Reponse("r2q11", false, questionService.getById(11L)));
 		reponseService.createOrUpdate(new Reponse("r3q11", false, questionService.getById(11L)));
 		reponseService.createOrUpdate(new Reponse("r4q11", false, questionService.getById(11L)));
@@ -121,11 +121,11 @@ public class AllServiceTest {
 		questionService.createOrUpdate(new Question("enonce q12",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q12", false, questionService.getById(12L)));
 		reponseService.createOrUpdate(new Reponse("r2q12", false, questionService.getById(12L)));
-		reponseService.createOrUpdate(new Reponse("r3q12", false, questionService.getById(12L)));
+		reponseService.createOrUpdate(new Reponse("r3q12", true, questionService.getById(12L)));
 		reponseService.createOrUpdate(new Reponse("r4q12", false, questionService.getById(12L)));
 		//q13
 		questionService.createOrUpdate(new Question("enonce q13",themeService.getById((long) 2)));
-		reponseService.createOrUpdate(new Reponse("r1q13", false, questionService.getById(13L)));
+		reponseService.createOrUpdate(new Reponse("r1q13", true, questionService.getById(13L)));
 		reponseService.createOrUpdate(new Reponse("r2q13", false, questionService.getById(13L)));
 		reponseService.createOrUpdate(new Reponse("r3q13", false, questionService.getById(13L)));
 		reponseService.createOrUpdate(new Reponse("r4q13", false, questionService.getById(13L)));
@@ -133,11 +133,11 @@ public class AllServiceTest {
 		questionService.createOrUpdate(new Question("enonce q14",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(new Reponse("r1q14", false, questionService.getById(14L)));
 		reponseService.createOrUpdate(new Reponse("r2q14", false, questionService.getById(14L)));
-		reponseService.createOrUpdate(new Reponse("r3q14", false, questionService.getById(14L)));
+		reponseService.createOrUpdate(new Reponse("r3q14", true, questionService.getById(14L)));
 		reponseService.createOrUpdate(new Reponse("r4q14", false, questionService.getById(14L)));
 		//q15
 		questionService.createOrUpdate(new Question("enonce q15",themeService.getById((long) 2)));
-		reponseService.createOrUpdate(new Reponse("r1q15", false, questionService.getById(15L)));
+		reponseService.createOrUpdate(new Reponse("r1q15", true, questionService.getById(15L)));
 		reponseService.createOrUpdate(new Reponse("r2q15", false, questionService.getById(15L)));
 		reponseService.createOrUpdate(new Reponse("r3q15", false, questionService.getById(15L)));
 		reponseService.createOrUpdate(new Reponse("r4q15", false, questionService.getById(15L)));
