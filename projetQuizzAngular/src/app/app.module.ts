@@ -23,6 +23,7 @@ import { ModifQuizzComponent } from './components/modif-quizz/modif-quizz.compon
 import { EditModifQuizzComponent } from './components/modif-quizz/edit-modif-quizz/edit-modif-quizz.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ResultatsComponent } from './components/quizz/resultats/resultats.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ModifQuizzComponent,
     EditModifQuizzComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    ResultatsComponent
   ],
   imports: [
     BrowserModule,
