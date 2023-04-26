@@ -1,8 +1,8 @@
 <div>
-	<div>
-		Question n° {{ numero }}: <br />
-		{{ question.enonceQuestion }}
-	</div>
+	Question n° {{ numero }}: <br />
+	{{ question.enonceQuestion }}
+</div>
+<div *ngIf="showQuestion">
 	<div>
 		<label for="reponse" *ngFor="let rep of question.reponses; let i = index">
 			<input
@@ -10,14 +10,13 @@
 				id="question{{ i }}"
 				name="reponse"
 				[value]="rep.bonneReponse"
-				(change)="voirResults($event)"
+				(change)="getValue($event)"
 			/>{{ rep.enonceReponse }}
 		</label>
 	</div>
+	<button (click)="voirResults()" class="btn btn-primary">resultat</button>
 </div>
-<!-- <button (click)="voirResults()" class="btn btn-primary">next</button> -->
 
-<div *ngIf="showResults">
-	<p>resultats question</p>
-	<div></div>
+<div *ngIf="!showQuestion">
+	<div>resultats question</div>
 </div>

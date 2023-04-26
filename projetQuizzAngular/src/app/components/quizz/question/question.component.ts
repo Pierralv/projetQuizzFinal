@@ -1,18 +1,14 @@
 import { QuizzService } from "src/app/services/quizz.service";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Question } from "src/app/model/question";
-import { Reponse } from "src/app/model/reponse";
 
 @Component({
 	selector: "app-question",
 	templateUrl: "./question.component.html",
 	styleUrls: ["./question.component.css"],
 })
-export class QuestionComponent implements OnInit {
-	// @Input("questionsQuizz")
-	// questions: Question[];
-	showResults = false;
-	value!: boolean;
+export class QuestionComponent {
+	value!: string;
 	bonneReponse!: boolean;
 
 	@Input()
@@ -21,20 +17,22 @@ export class QuestionComponent implements OnInit {
 	@Input()
 	question: Question;
 
-	// nbQuestionQuizz!: number;
+	@Input()
+	showQuestion: boolean;
+
+	@Output()
+	showQuestionEven: EventEmitter<boolean> = new EventEmitter();
 
 	constructor(private quizzSrv: QuizzService) {}
 
-	ngOnInit(): void {
-		// this.nbQuestionQuizz = this.questions.length;
-		// console.log(this.questions);
-	}
-
-	voirResults(ev: Event) {
-		this.showResults = true;
-		// this.value = (ev.target as HTMLInputElement).value;
-		console.log((ev.target as HTMLInputElement).value);
+	getValue(ev: Event) {
+		this.value = (ev.target as HTMLInputElement).value;
 		if (this.value) {
 		}
+	}
+
+	voirResults() {
+		this.showQuestion = false;
+		this.showQuestionEven.emit(this.showQuestion);
 	}
 }

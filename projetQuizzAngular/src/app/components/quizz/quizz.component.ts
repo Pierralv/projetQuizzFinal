@@ -11,10 +11,13 @@ export class QuizzComponent implements OnInit {
 	nbQuestionQuizz: number;
 	index: number = 0;
 	showPrepaQuizz: boolean = true;
+	showQuestion: boolean;
 
 	constructor() {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.showQuestion = true;
+	}
 
 	loadQuestionsQuizz(questions: Question[]) {
 		this.questionsQuizz = questions;
@@ -24,5 +27,10 @@ export class QuizzComponent implements OnInit {
 
 	questionSuivante() {
 		this.index++;
+		this.showQuestion = true;
+	}
+
+	traitementBoolean(showQuestion: boolean) {
+		this.showQuestion = showQuestion;
 	}
 }
