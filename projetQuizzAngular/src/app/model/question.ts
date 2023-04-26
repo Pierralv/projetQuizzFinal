@@ -9,10 +9,10 @@ export class Question {
 	public set createur(value: Compte | undefined) {
 		this._createur = value;
 	}
-	public get reponses(): Set<Reponse> | undefined {
+	public get reponses(): Reponse[] | undefined {
 		return this._reponses;
 	}
-	public set reponses(value: Set<Reponse> | undefined) {
+	public set reponses(value: Reponse[] | undefined) {
 		this._reponses = value;
 	}
 	public get theme(): Theme | undefined {
@@ -37,7 +37,7 @@ export class Question {
 		private _id?: number,
 		private _enonceQuestion?: string,
 		private _theme?: Theme,
-		private _reponses?: Set<Reponse>,
+		private _reponses?: Reponse[],
 		private _createur?: Compte
 	) {}
 }
