@@ -4,52 +4,15 @@
 		{{ question.enonceQuestion }}
 	</div>
 	<div>
-		<label for="question{{ i }}" *ngFor="let rep of question.reponses; let i = index">
+		<label for="reponse" *ngFor="let rep of question.reponses; let i = index">
 			<input
 				type="radio"
 				id="question{{ i }}"
-				name="question{{ i }}"
+				name="reponse"
 				[value]="rep.bonneReponse"
 				(change)="voirResults($event)"
 			/>{{ rep.enonceReponse }}
 		</label>
-
-		<!-- <label for="reponse">
-			<input
-				type="radio"
-				id="question1"
-				name="reponse"
-				[value]="question.reponses[0].bonneReponse"
-				(change)="voirResults($event)"
-			/>{{ question.reponses[0].enonceReponse }}
-		</label>
-		<label for="reponse">
-			<input
-				type="radio"
-				id="question2"
-				name="reponse"
-				[value]="question.reponses[1].bonneReponse"
-				(change)="voirResults($event)"
-			/>{{ question.reponses[1].enonceReponse }}
-		</label>
-		<label for="reponse">
-			<input
-				type="radio"
-				id="question3"
-				name="reponse"
-				[value]="question.reponses[2].bonneReponse"
-				(change)="voirResults($event)"
-			/>{{ question.reponses[2].enonceReponse }}
-		</label>
-		<label for="reponse">
-			<input
-				type="radio"
-				id="question4"
-				name="reponse"
-				[value]="question.reponses[3].bonneReponse"
-				(change)="voirResults($event)"
-			/>{{ question.reponses[3].enonceReponse }}
-		</label> -->
 	</div>
 </div>
 <!-- <button (click)="voirResults()" class="btn btn-primary">next</button> -->

@@ -4,8 +4,9 @@
 <br />
 
 <ng-template #quizzBlock>
-	<div *ngFor="let q of questionsQuizz">
-		<app-question [numero]="questionsQuizz.indexOf(q) + 1" [question]="q"></app-question>
-		<!-- <button (click)="questionSuivante()" class="btn btn-primary">question suivante</button> -->
+	<div>
+		<!-- *ngFor="let q of questionsQuizz" -->
+		<app-question [numero]="index + 1" [question]="questionsQuizz[index]"></app-question>
+		<button (click)="questionSuivante()" class="btn btn-primary">question suivante</button>
 	</div>
 </ng-template>
