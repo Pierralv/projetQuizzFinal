@@ -15,6 +15,7 @@ export class InscriptionComponent implements OnInit {
   form!: FormGroup;
   showPassword = false;
   avatar: string = 'assets/img/avatarVide.png';
+  messageCreation = false;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -67,9 +68,12 @@ export class InscriptionComponent implements OnInit {
       motDePasse: this.form.get('compteGroup.mdpGroup.mdp')?.value,
       avatar: this.avatar,
     };
-    this.compteSrv.inscription(compteJson).subscribe((compte) => {
-      this.router.navigateByUrl('/connexion');
-    })
+    this.messageCreation = true;
+    setTimeout(() => {
+      this.compteSrv.inscription(compteJson).subscribe((compte) => {
+        this.router.navigateByUrl('/home');
+      });
+    },3000);
   }
 
   show(){
@@ -80,4 +84,7 @@ export class InscriptionComponent implements OnInit {
   traitementAvatarInscription(avatar: string) {
     this.avatar = avatar;
   }
+
+
+
 }

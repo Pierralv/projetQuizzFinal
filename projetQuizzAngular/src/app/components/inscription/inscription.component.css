@@ -12,3 +12,7 @@
   border-radius: 100%;
   margin-bottom:10px;
 }
+
+#messageErreur {
+  font-size: 12px;
+}
