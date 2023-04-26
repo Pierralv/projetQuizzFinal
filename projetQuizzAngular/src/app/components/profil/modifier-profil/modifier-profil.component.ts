@@ -28,7 +28,6 @@ export class ModifierProfilComponent {
 
   modifier(form: NgForm) {
     if (form.valid) {
-      console.log(this.compte);
       this.compteSrv.modification(this.compte).subscribe({
         next:()=>{
           this.showError = false;

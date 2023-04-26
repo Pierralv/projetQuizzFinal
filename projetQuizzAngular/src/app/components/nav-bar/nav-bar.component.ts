@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Compte } from 'src/app/model/compte';
 import { Role } from 'src/app/model/role';
@@ -8,8 +8,20 @@ import { Role } from 'src/app/model/role';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   constructor(private router: Router){}
+
+  compte:Compte;
+
+  ngOnInit(): void {
+    this.initCompte();
+  }
+
+  initCompte() {
+    if (sessionStorage.getItem('compte')) {
+      this.compte = JSON.parse(sessionStorage.getItem('compte')!) as Compte;
+    }
+  }
 
   deconnexion() {
     sessionStorage.clear();
