@@ -12,7 +12,8 @@ export class QuestionComponent implements OnInit {
 	// @Input("questionsQuizz")
 	// questions: Question[];
 	showResults = false;
-	value: boolean;
+	value!: boolean;
+	bonneReponse!: boolean;
 
 	@Input()
 	numero: number;
@@ -31,7 +32,9 @@ export class QuestionComponent implements OnInit {
 
 	voirResults(ev: Event) {
 		this.showResults = true;
+		// this.value = (ev.target as HTMLInputElement).value;
 		console.log((ev.target as HTMLInputElement).value);
-		// this.quizzSrv.getReponseById();
+		if (this.value) {
+		}
 	}
 }

@@ -9,6 +9,7 @@ import { Question } from "src/app/model/question";
 export class QuizzComponent implements OnInit {
 	questionsQuizz: Question[] = [];
 	nbQuestionQuizz: number;
+	index: number = 0;
 	showPrepaQuizz: boolean = true;
 
 	constructor() {}
@@ -21,5 +22,7 @@ export class QuizzComponent implements OnInit {
 		this.nbQuestionQuizz = this.questionsQuizz.length;
 	}
 
-	questionSuivante() {}
+	questionSuivante() {
+		this.index++;
+	}
 }
