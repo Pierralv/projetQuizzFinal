@@ -26,7 +26,7 @@ public class Reponse {
     @JsonView(JsonViews.Simple.class)
     private String enonceReponse;
     @Column(name = "bonne_reponse")
-    @JsonView(JsonViews.Reponse.class)
+    @JsonView({JsonViews.Reponse.class, JsonViews.QuestionWithReponses.class})
     private boolean bonneReponse;
     @ManyToOne
     @JoinColumn(name = "reponse_id_question", foreignKey =  @ForeignKey(name = "reponse_id_question_fk"))
