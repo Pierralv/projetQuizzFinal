@@ -19,6 +19,7 @@ import { ModifierProfilComponent } from './components/profil/modifier-profil/mod
 import { ChoixAvatarComponent } from './components/choix-avatar/choix-avatar.component';
 import { PrepaQuizzComponent } from './components/quizz/prepa-quizz/prepa-quizz.component';
 import { QuestionComponent } from './components/quizz/question/question.component';
+import { ModifQuizzComponent } from './components/modif-quizz/modif-quizz.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { QuestionComponent } from './components/quizz/question/question.componen
     ModifierProfilComponent,
     ChoixAvatarComponent,
     PrepaQuizzComponent,
-    QuestionComponent
+    QuestionComponent,
+    ModifQuizzComponent
   ],
   imports: [
     BrowserModule,
