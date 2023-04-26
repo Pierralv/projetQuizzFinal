@@ -34,21 +34,27 @@ public class AllServiceTest {
 	private Compte compte2 = new Compte("nom1", "prenom1", "user1", "avatar1", "email1", "user1", Role.ROLE_UTILISATEUR);
 	private Compte compte3 = new Compte("nom2", "prenom2", "user2", "avatar2", "email2", "user2", Role.ROLE_UTILISATEUR);
 	private Theme theme = new Theme("film");
-	private Question question = new Question("enonce", theme, compte1);
+	private Question question = new Question("enonce q1", theme, compte1);
 
 	@Commit
 	@Test
 	void initTheme() {
 		themeService.createOrUpdate(theme);
 		themeService.createOrUpdate(new Theme("histoire"));
+		themeService.createOrUpdate(new Theme("musique"));
 		compteSrv.createAdmin(compte1);
 		compteSrv.createUser(compte2);
 		compteSrv.createUser(compte3);
 		questionService.createOrUpdate(question);
-		Reponse rep1 = new Reponse("enonce de la reponse1", false, question);
-		Reponse rep2 = new Reponse("enonce de la reponse2", true, question);
-		Reponse rep3 = new Reponse("enonce de la reponse3", false, question);
-		Reponse rep4 = new Reponse("enonce de la reponse4", false, question);
+		Reponse rep1 = new Reponse("rep1 q1", false, question);
+		Reponse rep2 = new Reponse("rep2 q1", true, question);
+		Reponse rep3 = new Reponse("rep3 q1", false, question);
+		Reponse rep4 = new Reponse("rep4 q1", false, question);
+		questionService.createOrUpdate(new Question("enonce q2",themeService.getById((long) 2)));
+		questionService.createOrUpdate(new Question("enonce q3",themeService.getById((long) 2)));
+		questionService.createOrUpdate(new Question("enonce q4",themeService.getById((long) 2)));
+		questionService.createOrUpdate(new Question("enonce q5",themeService.getById((long) 2)));
+		questionService.createOrUpdate(new Question("enonce q6",themeService.getById((long) 2)));
 		reponseService.createOrUpdate(rep1);
 		reponseService.createOrUpdate(rep2);
 		reponseService.createOrUpdate(rep3);
