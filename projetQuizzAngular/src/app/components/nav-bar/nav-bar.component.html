@@ -2,8 +2,7 @@
 <nav>
   <app-lien etiquetteLien="home" lien="/home"></app-lien>
   <ng-container *ngIf="admin" >
-    <app-lien etiquetteLien="theme" lien="/theme"></app-lien>
-    <app-lien etiquetteLien="question" lien="/question"></app-lien>
+    <app-lien etiquetteLien="modifier quizz" lien="/modifQuizz"></app-lien>
     <app-lien etiquetteLien="" lien=""></app-lien>
   </ng-container>
   <ng-container *ngIf="utilisateur">
@@ -15,6 +14,9 @@
   <ng-container *ngIf="!admin">
     <app-lien etiquetteLien="jouer" lien="/quizz"></app-lien>
   </ng-container>
+  </ng-container>
+  <ng-container *ngIf="!admin" >
+    <app-lien etiquetteLien="home" lien="/home"></app-lien>
   </ng-container>
   <button *ngIf="connecte" class="btn btn-link" (click)="deconnexion()">Déconnexion</button>
 </nav>
