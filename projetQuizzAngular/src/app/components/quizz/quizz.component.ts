@@ -12,6 +12,7 @@ export class QuizzComponent implements OnInit {
 	index: number = 0;
 	showPrepaQuizz: boolean = true;
 	showQuestion: boolean;
+	showResultats: boolean = false;
 	boutonSuite: boolean = true;
 	points!: number;
 	score!: number;
@@ -51,5 +52,6 @@ export class QuizzComponent implements OnInit {
 		// switch(this.questionsQuizz.length) {
 		//   case
 		// }
+		// this.showResultats = true;
 	}
 }

@@ -43,7 +43,9 @@ export class QuestionComponent {
 		if (this.value == "true") {
 			this.points++;
 		} else {
-			this.points = this.points - 0.5;
+			if (this.points >= 0.5) {
+				this.points = this.points - 0.5;
+			}
 		}
 		console.log(this.points);
 		this.sendPtsEven.emit(this.points);
