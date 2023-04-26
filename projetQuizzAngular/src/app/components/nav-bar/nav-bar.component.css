@@ -1,6 +1,18 @@
 .flex-container {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  align-content: center;
+  justify-content: space-between;
+  background-color: rgb(0, 160, 253);
+  padding: 15px 150px;
+  margin-bottom:50px;
 }
+
+#title{
+  cursor:pointer;
+  font-size:30px;
+  color: azure;
+  font-weight:800
+}
+
 

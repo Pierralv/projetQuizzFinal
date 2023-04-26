@@ -21,6 +21,8 @@ import { PrepaQuizzComponent } from './components/quizz/prepa-quizz/prepa-quizz.
 import { QuestionComponent } from './components/quizz/question/question.component';
 import { ModifQuizzComponent } from './components/modif-quizz/modif-quizz.component';
 import { EditModifQuizzComponent } from './components/modif-quizz/edit-modif-quizz/edit-modif-quizz.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EditModifQuizzComponent } from './components/modif-quizz/edit-modif-qui
     PrepaQuizzComponent,
     QuestionComponent,
     ModifQuizzComponent,
-    EditModifQuizzComponent
+    EditModifQuizzComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

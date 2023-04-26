@@ -14,6 +14,7 @@ import { PrepaQuizzComponent } from './components/quizz/prepa-quizz/prepa-quizz.
 import { NonAdminGuardService } from './services/guard/non-admin-guard.service';
 import { ModifQuizzComponent } from './components/modif-quizz/modif-quizz.component';
 import { EditModifQuizzComponent } from './components/modif-quizz/edit-modif-quizz/edit-modif-quizz.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path: 'statistiques', component : StatistiquesComponent, canActivate: [UtilisateurGuardService]},
   {path: 'modifQuizz', component : ModifQuizzComponent, canActivate: [AdminGuardService] },
   {path: 'editModifQuizz', component : EditModifQuizzComponent, canActivate: [AdminGuardService] },
-
+  { path: '**', component: NotFoundComponent}
 
 
 ];
