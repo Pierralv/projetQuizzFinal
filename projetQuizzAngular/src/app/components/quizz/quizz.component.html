@@ -1,3 +1,4 @@
+<div id="principal-container">
 <div *ngIf="showPrepaQuizz; else quizzBlock">
 	<app-prepa-quizz (sendQuestionsEven)="loadQuestionsQuizz($event)"></app-prepa-quizz>
 </div>
@@ -32,3 +33,4 @@
 		<app-resultats [score]="score"></app-resultats>
 	</ng-container>
 </ng-template>
+</div>
