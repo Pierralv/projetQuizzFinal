@@ -1,9 +1,16 @@
 <div class="flex-container">
-  <span *ngIf="!admin" id="title" routerLink="/home" routerLinkActive="active">QuizzApp</span>
-  <span *ngIf="admin" id="title" routerLink="/modifQuizz" routerLinkActive="active">QuizzApp</span>
+  <span *ngIf="!admin" id="title" routerLink="/home" routerLinkActive="active"
+    >QuizzApp</span
+  >
+  <span *ngIf="admin" id="title" routerLink="/admin" routerLinkActive="active"
+    >QuizzApp</span
+  >
   <nav>
     <ng-container *ngIf="!admin">
       <app-lien etiquetteLien="Accueil" lien="/home"></app-lien>
+    </ng-container>
+    <ng-container *ngIf="admin">
+      <app-lien etiquetteLien="Accueil" lien="/admin"></app-lien>
     </ng-container>
     <ng-container *ngIf="admin">
       <app-lien etiquetteLien="Modifier Quizz" lien="/modifQuizz"></app-lien>
@@ -18,7 +25,12 @@
       <app-lien etiquetteLien="Inscription" lien="/inscription"></app-lien>
       <app-lien etiquetteLien="Connexion" lien="/connexion"></app-lien>
     </ng-container>
-    <app-lien *ngIf="connecte" id="btn-deco" etiquetteLien="Deconnexion" (click)="deconnexion()">
+    <app-lien
+      *ngIf="connecte"
+      id="btn-deco"
+      etiquetteLien="Deconnexion"
+      (click)="deconnexion()"
+    >
       Déconnexion
     </app-lien>
     <!--test apparition Avatar lorsque connecté -->
