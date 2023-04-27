@@ -1,34 +1,40 @@
-<div *ngIf="showPrepaQuizz; else quizzBlock">
-	<app-prepa-quizz (sendQuestionsEven)="loadQuestionsQuizz($event)"></app-prepa-quizz>
+<div id="principal-container">
+  <div *ngIf="showPrepaQuizz; else quizzBlock">
+    <app-prepa-quizz
+      (sendQuestionsEven)="loadQuestionsQuizz($event)"
+    ></app-prepa-quizz>
+  </div>
+  <br />
+
+  <ng-template #quizzBlock>
+    <div *ngIf="!showResultats">
+      <app-question
+        [numero]="index + 1"
+        [question]="questionsQuizz[index]"
+        [showQuestion]="showQuestion"
+        (showQuestionEven)="traitementBoolean($event)"
+        (sendPtsEven)="traitementPts($event)"
+      ></app-question>
+
+      <div *ngIf="!showQuestion">
+        <div *ngIf="boutonSuite; else boutonFinal">
+          <div class="d-flex justify-content-end">
+            <button (click)="questionSuivante()" class="btn btn-primary">
+              Question suivante
+            </button>
+          </div>
+        </div>
+        <ng-template #boutonFinal>
+          <div class="d-flex justify-content-end">
+            <button (click)="finQuizz()" class="btn btn-primary">
+              Voir le score
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <ng-container *ngIf="showResultats">
+      <app-resultats [score]="score"></app-resultats>
+    </ng-container>
+  </ng-template>
 </div>
-<br />
-
-<ng-template #quizzBlock>
-	<div *ngIf="!showResultats">
-		<app-question
-			[numero]="index + 1"
-			[question]="questionsQuizz[index]"
-			[showQuestion]="showQuestion"
-			(showQuestionEven)="traitementBoolean($event)"
-			(sendPtsEven)="traitementPts($event)"
-		></app-question>
-
-		<div *ngIf="!showQuestion">
-			<div *ngIf="boutonSuite; else boutonFinal">
-				<div>
-					<button (click)="questionSuivante()" class="btn btn-primary">
-						Question suivante
-					</button>
-				</div>
-			</div>
-			<ng-template #boutonFinal>
-				<div>
-					<button (click)="finQuizz()" class="btn btn-primary">Voir le score</button>
-				</div>
-			</ng-template>
-		</div>
-	</div>
-	<ng-container *ngIf="showResultats">
-		<app-resultats [score]="score"></app-resultats>
-	</ng-container>
-</ng-template>

@@ -1,22 +1,30 @@
 <div>
-	<p>Vous êtes arrivés à bout du quizz !!</p>
-	<p>Voici votre score : {{ score }}/10</p>
+  <p id="slogan" class="text-center mb-5">
+    Vous êtes arrivés à bout du quizz !!
+  </p>
+  <p class="text-center">Voici votre score : {{ score }}/10</p>
 
-	<a
-		*ngIf="newLien"
-		routerLink="/newQuizz"
-		class="btn btn-outline-primary"
-		routerLinkActive="active"
-		(click)="newQuizz()"
-		>rejouer</a
-	>
-	<a
-		*ngIf="!newLien"
-		routerLink="/quizz"
-		class="btn btn-outline-primary"
-		routerLinkActive="active"
-		(click)="newQuizz()"
-		>rejouer</a
-	>
-	<a routerLink="/home" class="btn btn-outline-dark">retour page accueil</a>
+  <div class="text-center mt-5 mb-2">
+    <a
+      *ngIf="newLien"
+      routerLink="/newQuizz"
+      class="btn btn-outline-primary me-2"
+      routerLinkActive="active"
+      (click)="newQuizz()"
+      >Rejouer</a
+    >
+  </div>
+  <a
+    *ngIf="!newLien"
+    routerLink="/quizz"
+    class="btn btn-outline-primary"
+    routerLinkActive="active"
+    (click)="newQuizz()"
+    >Rejouer</a
+  >
+  <div class="text-center mt-5 mb-2">
+    <a routerLink="/home" class="btn btn-outline-dark ms-2"
+      >Retour page d'accueil</a
+    >
+  </div>
 </div>

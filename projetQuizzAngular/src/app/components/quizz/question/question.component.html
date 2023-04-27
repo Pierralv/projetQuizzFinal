@@ -1,31 +1,40 @@
-<div>
-	Question n° {{ numero }}: <br />
-	{{ question.enonceQuestion }}
+<div class="text-center rounded py-3 mb-5 container col-8" id="question">
+  Question n° {{ numero }}:
+  <hr />
+  {{ question.enonceQuestion }}
 </div>
-<div *ngIf="showQuestion">
-	<div *ngFor="let rep of question.reponses; let i = index">
-		<label for="reponse">
-			<input
-				type="radio"
-				id="question{{ i }}"
-				name="reponse"
-				[value]="rep.bonneReponse"
-				(change)="getValue($event)"
-			/>{{ rep.enonceReponse }}
-		</label>
-	</div>
-	<br />
-	<button (click)="voirResults()" class="btn btn-primary">resultat</button>
+<div *ngIf="showQuestion" class="text-center">
+  <div *ngFor="let rep of question.reponses; let i = index">
+    <label for="reponse">
+      <input
+        type="radio"
+        id="question{{ i }}"
+        name="reponse"
+        [value]="rep.bonneReponse"
+        (change)="getValue($event)"
+        class="mb-3 mt-3"
+      />{{ rep.enonceReponse }}
+    </label>
+  </div>
+  <br />
+  <button (click)="voirResults()" class="btn btn-primary">Résultat</button>
 </div>
 
-<div *ngIf="!showQuestion">
-	<ng-container *ngIf="value == 'true'; else mauvaiseReponseBlock">
-		<p>Bravo ! Tu as trouvé la bonne réponse. <br /></p>
-	</ng-container>
-	<ng-template #mauvaiseReponseBlock>
-		<p>
-			Raté ! Vous avez sélectionner la mauvaise réponse, la bonne réponse est : <br />
-			{{ bonneReponse.enonceReponse }}<br />
-		</p>
-	</ng-template>
+<div *ngIf="!showQuestion" class="text-center">
+  <ng-container *ngIf="value == 'true'; else mauvaiseReponseBlock">
+    <p class="text-success text-center">
+      <b>Bravo !</b>
+      <br />
+      Tu as trouvé la bonne réponse.
+    </p>
+  </ng-container>
+  <ng-template #mauvaiseReponseBlock>
+    <p class="text-danger text-center">
+      <b>Raté !</b>
+      <br />
+      Vous avez sélectionner la mauvaise réponse, la bonne réponse est :
+      <br />
+      {{ bonneReponse.enonceReponse }}<br />
+    </p>
+  </ng-template>
 </div>

@@ -3,3 +3,28 @@
   font-weight:800;
   font-size:30px;
 }
+
+#flex-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: azure;
+}
+
+a:hover{
+  color: rgb(189, 202, 202);
+  text-decoration: underline;
+}
+
+#end{
+  margin-top: 16px;
+}
+
+#links{
+  margin-top: 16px;
+}
+
