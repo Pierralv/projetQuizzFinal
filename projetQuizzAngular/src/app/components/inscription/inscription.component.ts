@@ -73,7 +73,7 @@ export class InscriptionComponent implements OnInit {
       this.compteSrv.inscription(compteJson).subscribe((compte) => {
         this.router.navigateByUrl('/home');
       });
-    },3000);
+    },1000);
   }
 
   show(){

@@ -49,6 +49,6 @@ export class ProfilComponent implements OnInit {
         this.router.navigateByUrl('/home');
       });
     }
-    ,3000);
+    ,1000);
   }
 }

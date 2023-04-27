@@ -25,6 +25,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResultatsComponent } from './components/quizz/resultats/resultats.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdminComponent } from './components/admin/admin.component';
     NotFoundComponent,
     FooterComponent,
     ResultatsComponent,
-    AdminComponent
+    AdminComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,7 @@ a:hover{
 }
 
 #end{
+  justify-self: end;
   margin-top: 16px;
 }
 
