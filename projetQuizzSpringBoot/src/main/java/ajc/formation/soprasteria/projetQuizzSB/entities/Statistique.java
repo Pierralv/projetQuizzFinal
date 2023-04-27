@@ -3,28 +3,34 @@ package ajc.formation.soprasteria.projetQuizzSB.entities;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
+
 @Embeddable
 public class Statistique {
-	@Column(nullable = true)
-	private int scoreMax;
-	@Column(nullable = true)
-	private int scoreMoyen;
+	@Column
+	@JsonView(JsonViews.Simple.class)
+	private Integer scoreMax = 0;
+	@Column
+	@JsonView(JsonViews.Simple.class)
+	private Integer scoreMoyen = 0;
 	@Column(nullable = true)
 	private String themePref;
 	@Column(nullable = true)
-	private double tempsMoyenReponse;
+	private Double tempsMoyenReponse;
 	@Column(nullable = true)
-	private int partiesGagnees;
+	private Integer partiesGagnees;
 	@Column(nullable = true)
-	private double ratioVainqueur;
+	private Double ratioVainqueur;
 	
 	
 	public Statistique() {
 	}
 
 
-	public Statistique(int scoreMax, int scoreMoyen, String themePref, double tempsMoyenReponse, int partiesGagnees,
-			double ratioVainqueur) {
+	public Statistique(Integer scoreMax, Integer scoreMoyen, String themePref, Double tempsMoyenReponse, Integer partiesGagnees,
+	Double ratioVainqueur) {
 		this.scoreMax = scoreMax;
 		this.scoreMoyen = scoreMoyen;
 		this.themePref = themePref;
@@ -34,22 +40,22 @@ public class Statistique {
 	}
 
 
-	public int getScoreMax() {
+	public Integer getScoreMax() {
 		return scoreMax;
 	}
 
 
-	public void setScoreMax(int scoreMax) {
+	public void setScoreMax(Integer scoreMax) {
 		this.scoreMax = scoreMax;
 	}
 
 
-	public int getScoreMoyen() {
+	public Integer getScoreMoyen() {
 		return scoreMoyen;
 	}
 
 
-	public void setScoreMoyen(int scoreMoyen) {
+	public void setScoreMoyen(Integer scoreMoyen) {
 		this.scoreMoyen = scoreMoyen;
 	}
 
@@ -64,32 +70,32 @@ public class Statistique {
 	}
 
 
-	public double getTempsMoyenReponse() {
+	public Double getTempsMoyenReponse() {
 		return tempsMoyenReponse;
 	}
 
 
-	public void setTempsMoyenReponse(double tempsMoyenReponse) {
+	public void setTempsMoyenReponse(Double tempsMoyenReponse) {
 		this.tempsMoyenReponse = tempsMoyenReponse;
 	}
 
 
-	public int getPartiesGagnees() {
+	public Integer getPartiesGagnees() {
 		return partiesGagnees;
 	}
 
 
-	public void setPartiesGagnees(int partiesGagnees) {
+	public void setPartiesGagnees(Integer partiesGagnees) {
 		this.partiesGagnees = partiesGagnees;
 	}
 
 
-	public double getRatioVainqueur() {
+	public Double getRatioVainqueur() {
 		return ratioVainqueur;
 	}
 
 
-	public void setRatioVainqueur(double ratioVainqueur) {
+	public void setRatioVainqueur(Double ratioVainqueur) {
 		this.ratioVainqueur = ratioVainqueur;
 	}
 	

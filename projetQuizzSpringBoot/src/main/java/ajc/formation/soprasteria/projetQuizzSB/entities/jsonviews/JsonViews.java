@@ -9,7 +9,7 @@ public class JsonViews {
 
     }
 
-    public static class CompteWithQuestions extends Simple{
+    public static class CompteWithQuestions extends Compte{
 
     }
 

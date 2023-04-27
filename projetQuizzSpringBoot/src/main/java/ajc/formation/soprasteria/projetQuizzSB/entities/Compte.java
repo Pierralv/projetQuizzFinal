@@ -57,7 +57,8 @@ public class Compte implements UserDetails {
 	@JsonView(JsonViews.CompteWithQuestions.class)
 	private Set<Question> questions;
 	@Embedded
-	private Statistique statistique;
+	@JsonView(JsonViews.Compte.class)
+	private Statistique statistique = new Statistique();
 	
 	
 
