@@ -4,7 +4,7 @@
 <br />
 
 <ng-template #quizzBlock>
-	<div>
+	<div *ngIf="!showResultats">
 		<app-question
 			[numero]="index + 1"
 			[question]="questionsQuizz[index]"
@@ -27,8 +27,8 @@
 				</div>
 			</ng-template>
 		</div>
-		<ng-container *ngIf="showResultats">
-			<app-resultats [score]="score"></app-resultats>
-		</ng-container>
 	</div>
+	<ng-container *ngIf="showResultats">
+		<app-resultats [score]="score"></app-resultats>
+	</ng-container>
 </ng-template>
