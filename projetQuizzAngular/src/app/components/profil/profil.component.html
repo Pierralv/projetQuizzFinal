@@ -7,7 +7,7 @@
   </div>
 </div>
 <ng-container *ngIf="!modif">
-  <div class="row mt-4">
+  <div class="row mt-4 " >
     <div class="col">
       <p class="fw-bold mt-3 mb-5">Informations du compte:</p>
       <p class="fw-bold text-secondary">
@@ -40,18 +40,23 @@
 </ng-container>
 
 <ng-container *ngIf="modif">
-  <app-modifier-profil [compte]="compte" (modifBooleanEvent)="traitementModifBoolean($event)"></app-modifier-profil>
+  <app-modifier-profil
+    [compte]="compte"
+    (modifBooleanEvent)="traitementModifBoolean($event)"
+  ></app-modifier-profil>
 </ng-container>
 
-<div *ngIf="!modif" class="text-center mt-5">
+<div *ngIf="!modif" class="text-center mt-5" >
   <button class="btn btn-primary" (click)="showModif()">
     Modifier le compte
   </button>
 </div>
 <div *ngIf="modif" class="text-center mt-5">
-  <button class="btn btn-primary" (click)="showModif(); initCompte()">← Retour</button>
+  <button class="btn btn-primary" (click)="showModif(); initCompte()">
+    ← Retour
+  </button>
 </div>
-<div *ngIf="!warning" class="text-center mt-5">
+<div *ngIf="!warning" class="text-center mt-5" id="principal-container" >
   <button class="btn btn-danger" (click)="showWarning()">
     Supprimer le compte
   </button>
@@ -60,8 +65,8 @@
   <button class="btn btn-danger" (click)="showWarning()">← Retour</button>
 </div>
 <ng-container *ngIf="warning && !messageSuppression">
-  <div class="text-center mt-3">
-    <p class="fw-bold text-danger">
+  <div class="text-center mt-3" id="principal-container">
+    <p class="fw-bold text-danger" >
       Êtes vous sur de vouloir supprimer votre compte définitivement ?
     </p>
     <p>
@@ -70,12 +75,12 @@
         (click)="suppression(compte.id!)"
       >
         Oui</button
-      ><button class="btn btn-outline-danger mx-2" (click)="showWarning()">
+      ><button class="btn btn-outline-danger mx-2" (click)="showWarning()" >
         Non
       </button>
     </p>
   </div>
 </ng-container>
-<h3 *ngIf="messageSuppression" class="fw-bold text-danger text-center mt-5">
+<h3 *ngIf="messageSuppression" class="fw-bold text-danger text-center mt-5" id="principal-container">
   Compte supprimé
 </h3>
