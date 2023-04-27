@@ -19,6 +19,9 @@
   font-weight:800
 }
 
+nav{
+  margin: auto 0;
+}
 /* apparition avatar dans navBar
  #img{
   border-radius: 100%;
