@@ -23,6 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import ajc.formation.soprasteria.projetQuizzSB.entities.Compte;
+import ajc.formation.soprasteria.projetQuizzSB.entities.Statistique;
 import ajc.formation.soprasteria.projetQuizzSB.entities.jsonviews.JsonViews;
 import ajc.formation.soprasteria.projetQuizzSB.services.CompteService;
 
@@ -87,6 +88,9 @@ public class CompteRestController {
 		}
 		if (compte.getAvatar() != null) {
 			compteEnBase.setAvatar(compte.getAvatar());
+		}
+		if (compte.getStatistique() != null) {
+			compteEnBase.setStatistique(compte.getStatistique());
 		}
 		compteSrv.update(compteEnBase);
 		return compteEnBase;

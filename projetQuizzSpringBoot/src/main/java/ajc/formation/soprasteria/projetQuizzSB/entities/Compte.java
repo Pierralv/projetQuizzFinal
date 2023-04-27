@@ -59,6 +59,8 @@ public class Compte implements UserDetails {
 	@Embedded
 	private Statistique statistique;
 	
+	
+
 	public Compte() {
 	}
 
@@ -142,6 +144,14 @@ public class Compte implements UserDetails {
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+	}
+
+	public Statistique getStatistique() {
+		return statistique;
+	}
+
+	public void setStatistique(Statistique statistique) {
+		this.statistique = statistique;
 	}
 
 	@Override
