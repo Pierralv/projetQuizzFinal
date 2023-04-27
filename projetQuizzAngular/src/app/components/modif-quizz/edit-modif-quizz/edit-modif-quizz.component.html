@@ -1,40 +1,45 @@
 <h2 class="text-center">Créer une question</h2>
 <hr />
 
-<form (ngSubmit)="submit()" [formGroup]="form">
-  <div class="form-group">
-    <label for="theme">Theme:</label>
-    <select class="select-control" id="theme" formControlName="theme">
+<form (ngSubmit)="submit()" [formGroup]="form" class="mt-5">
+  <div class="form-group my-5">
+    <label for="theme">Theme:
+    <select class="form-select" id="theme" formControlName="theme">
       <option *ngFor="let t of themes" [ngValue]="t" selected>
         {{ t.nom }}
       </option>
     </select>
+  </label>
   </div>
   <div class="form-group">
     <label for="enonceQuestion">Enoncé:</label>
     <textarea rows="3" id="enonceQuestion" class="form-control" formControlName="enonceQuestion"></textarea>
   </div>
-  <div class="form-group">
+  <div class="form-group my-4">
     <label for="reponseA">Réponse A:</label>
     <input id="reponseA" class="form-control" formControlName="reponseA" />
-    <input type="radio" name="bonneReponse" [value]="bonneReponseA" checked (change)="changeReponseA($event)"  />
+    <label for="bonneReponseA">Bonne réponse</label>
+    <input id="bonneReponseA" type="radio" name="bonneReponse" [value]="bonneReponseA" checked (change)="changeReponseA($event)"  />
   </div>
-  <div class="form-group">
+  <div class="form-group  my-4">
     <label for="reponseB">Réponse B:</label>
     <input id="reponseB" class="form-control" formControlName="reponseB" />
-    <input type="radio" name="bonneReponse" [value]="bonneReponseB" (change)="changeReponseB($event)"/>
+    <label for="bonneReponseB">Bonne réponse</label>
+    <input id="bonneReponseB" type="radio" name="bonneReponse" [value]="bonneReponseB" (change)="changeReponseB($event)"/>
   </div>
-  <div class="form-group">
+  <div class="form-group  my-4 ">
     <label for="reponseC">Réponse C:</label>
     <input id="reponseC" class="form-control" formControlName="reponseC"  />
-    <input type="radio" name="bonneReponse" [value]="bonneReponseC" (change)="changeReponseC($event)" />
+    <label for="bonneReponseC">Bonne réponse</label>
+    <input id="bonneReponseC" type="radio" name="bonneReponse" [value]="bonneReponseC" (change)="changeReponseC($event)" />
   </div>
-  <div class="form-group">
+  <div class="form-group my-4">
     <label for="reponseD">Réponse D:</label>
     <input id="reponseD" class="form-control" formControlName="reponseD" />
-    <input type="radio" name="bonneReponse" [value]="bonneReponseD" (change)="changeReponseD($event)" />
+    <label for="bonneReponseD">Bonne réponse</label>
+    <input id="bonneReponseD" type="radio" name="bonneReponse" [value]="bonneReponseD" (change)="changeReponseD($event)" />
   </div>
-  <div class="form-group">
+  <div class="form-group mb-5">
     <button
       type="submit"
       class="btn btn-outline-primary btn-lg mt-5"
