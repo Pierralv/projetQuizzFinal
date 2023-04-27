@@ -1,27 +1,65 @@
-<h2>Prépa quizz</h2>
+<h2 class="text-center">Lancer une partie</h2>
+<hr />
 <div>
-	<div>
-		<label for="theme"
-			>choisissez un theme:
-			<select [(ngModel)]="selectedTheme">
-				<option *ngFor="let t of themes" [ngValue]="t.id">
-					{{ t.nom }}
-				</option>
-			</select>
-		</label>
-	</div>
-	<div>
-		<label for="nbQuestion"
-			>Nombre de questions du quizz:
-			<input type="radio" value="3" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 3
-			<input type="radio" value="5" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 5
-			<input type="radio" value="10" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 10
-			<input type="radio" value="15" name="nbQuestion" [(ngModel)]="nbQuestionQuizz" /> 15
-		</label>
-	</div>
-	<div>
-		<button (click)="sendPrepQuizz()" class="btn btn-outline-primary">
-			commencer le quizz
-		</button>
-	</div>
+  Voici les règles:
+  <ul>
+    <li>Choississez votre thème</li>
+    <li>Choississez le nombre de questions souhaitées lors du quizz</li>
+    <li>Chaque bonne réponse vous rapporte un point</li>
+    <li>Attention! Chaque mauvaise réponse vous retire 0,5 points</li>
+  </ul>
+  A vous de jouer !
+</div>
+<br />
+<div>
+  <div>
+    <label for="theme"
+      >Choisissez un thème:
+      <select [(ngModel)]="selectedTheme">
+        <option *ngFor="let t of themes" [ngValue]="t.id">
+          {{ t.nom }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label for="nbQuestion"
+      >Nombre de questions du quizz:
+      <br />
+      <input
+        type="radio"
+        value="3"
+        name="nbQuestion"
+        [(ngModel)]="nbQuestionQuizz"
+      />
+      3 questions
+      <input
+        type="radio"
+        value="5"
+        name="nbQuestion"
+        [(ngModel)]="nbQuestionQuizz"
+      />
+      5 questions
+      <input
+        type="radio"
+        value="10"
+        name="nbQuestion"
+        [(ngModel)]="nbQuestionQuizz"
+      />
+      10 questions
+      <input
+        type="radio"
+        value="15"
+        name="nbQuestion"
+        [(ngModel)]="nbQuestionQuizz"
+      />
+      15 questions
+    </label>
+  </div>
+  <br />
+  <div class="me-2">
+    <button (click)="sendPrepQuizz()" class="btn btn-outline-primary">
+      Commencer le Quizz
+    </button>
+  </div>
 </div>

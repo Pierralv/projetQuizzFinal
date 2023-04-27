@@ -2,11 +2,8 @@
 <hr />
 <div class="row">
   <ng-container *ngIf="showConnexion">
-    <div class="col-5 mt-5">
-      <app-connexion></app-connexion>
-    </div>
     <div class="col-1"></div>
-    <div class="text-center mt-3 col-5">
+    <div class="text-center mt-4 col-5">
       <br />
       <br />
       <h2 class="text-center mb-5" id="slogan">
@@ -14,6 +11,23 @@
       </h2>
       <br />
       <a routerLink="/quizz" routerLinkActive="active" id="btn-jouer">Jouer </a>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5 mt-3">
+      <div class="text-center mt-5">
+        Connectez vous pour collecter vos scores !
+      </div>
+      <div class="text-center mt-4">
+        <a routerLink="/connexion" routerLinkActive="active" id="btn-jouer"
+          >Connexion
+        </a>
+      </div>
+      <div class="text-center mt-5">Pas encore de compte? Inscrivez-vous !</div>
+      <div class="text-center mt-4">
+        <a routerLink="/inscription" routerLinkActive="active" id="btn-jouer"
+          >Inscription
+        </a>
+      </div>
     </div>
   </ng-container>
 </div>
