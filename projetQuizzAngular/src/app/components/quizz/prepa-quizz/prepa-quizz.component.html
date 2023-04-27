@@ -1,65 +1,53 @@
 <h2 class="text-center">Lancer une partie</h2>
 <hr />
 <div>
-  Voici les règles:
-  <ul>
-    <li>Choississez votre thème</li>
-    <li>Choississez le nombre de questions souhaitées lors du quizz</li>
-    <li>Chaque bonne réponse vous rapporte un point</li>
-    <li>Attention! Chaque mauvaise réponse vous retire 0,5 points</li>
-  </ul>
-  A vous de jouer !
+	Voici les règles :
+	<ul>
+		<li>Choississez votre thème</li>
+		<li>Choississez le nombre de questions souhaitées lors du quizz</li>
+		<li>Chaque bonne réponse vous rapporte un point</li>
+		<li>Attention! Chaque mauvaise réponse vous retire 0,5 points</li>
+	</ul>
+	A vous de jouer !
 </div>
 <br />
 <div id="principal-container">
-  <div>
-    <label for="theme"
-      >Choisissez un thème:
-      <select [(ngModel)]="selectedTheme">
-        <option *ngFor="let t of themes" [ngValue]="t.id">
-          {{ t.nom }}
-        </option>
-      </select>
-    </label>
-  </div>
-  <div>
-    <label for="nbQuestion"
-      >Nombre de questions du quizz:
-      <br />
-      <input
-        type="radio"
-        value="3"
-        name="nbQuestion"
-        [(ngModel)]="nbQuestionQuizz"
-      />
-      3 questions
-      <input
-        type="radio"
-        value="5"
-        name="nbQuestion"
-        [(ngModel)]="nbQuestionQuizz"
-      />
-      5 questions
-      <input
-        type="radio"
-        value="10"
-        name="nbQuestion"
-        [(ngModel)]="nbQuestionQuizz"
-      />
-      10 questions
-      <input
-        type="radio"
-        value="15"
-        name="nbQuestion"
-        [(ngModel)]="nbQuestionQuizz"
-      />
-      15 questions
-    </label>
-  </div>
-  <br />
-  <div class="me-2">
-    <button (click)="sendPrepQuizz()" class="btn btn-outline-primary" >
-      Commencer le Quizz
-    </button>
-  </div>
+	<div>
+		<label for="theme"
+			>Choisissez un thème :
+			<select [(ngModel)]="selectedTheme">
+				<option *ngFor="let t of themes" [ngValue]="t.id">
+					{{ t.nom }}
+				</option>
+			</select>
+		</label>
+		<br />
+		<br />
+	</div>
+	<div>
+		Nombre de questions du quizz :
+		<br />
+		<label for="nbQuestion3">
+			<input type="radio" value="3" id="nbQuestion3" [(ngModel)]="nbQuestionQuizz" />
+			3 questions
+		</label>
+		<label for="nbQuestion5">
+			<input type="radio" value="5" id="nbQuestion5" [(ngModel)]="nbQuestionQuizz" />
+			5 questions
+		</label>
+		<label for="nbQuestion10">
+			<input type="radio" value="10" id="nbQuestion10" [(ngModel)]="nbQuestionQuizz" />
+			10 questions
+		</label>
+		<label for="nbQuestion15">
+			<input type="radio" value="15" id="nbQuestion15" [(ngModel)]="nbQuestionQuizz" />
+			15 questions
+		</label>
+	</div>
+	<br />
+	<div class="me-2">
+		<button (click)="sendPrepQuizz()" class="btn btn-outline-primary">
+			Commencer le Quizz
+		</button>
+	</div>
 </div>
