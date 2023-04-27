@@ -25,7 +25,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="question_id")
-	@JsonView(JsonViews.Question.class)
+	@JsonView({JsonViews.Question.class, JsonViews.ThemeWithQuestions.class})
 	private Long id;
 	@Column(name = "question_enonce", columnDefinition = "TEXT")
 	@Lob
