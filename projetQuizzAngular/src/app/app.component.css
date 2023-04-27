@@ -1,20 +1,15 @@
 
-html, body{
-  height:100%;
-}
-
-#main{
-  min-height:100%;
-  margin-bottom:-142px;
-}
-
-#main:after{
-  content:'';
-  display:block;
-  height:142px;
+body{
+  min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 }
 
 #footer{
-  height:142px;
-  background-color: rgb(58, 78, 95);
+  padding: 50px 0px 50px 0px;
+  background-color: rgba(62, 84, 112, 0.733);
+  color: white;
 }
+
+
+
