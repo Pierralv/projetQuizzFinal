@@ -22,7 +22,6 @@ const routes: Routes = [
 	{ path: "profil", component: ProfilComponent, canActivate: [UtilisateurGuardService] },
 	{ path: "", redirectTo: "/home", pathMatch: "full" },
 	{ path: "quizz", component: QuizzComponent, canActivate: [NonAdminGuardService] },
-	{ path: "quizz/resultats", component: ResultatsComponent, canActivate: [NonAdminGuardService] },
 	{
 		path: "statistiques",
 		component: StatistiquesComponent,
