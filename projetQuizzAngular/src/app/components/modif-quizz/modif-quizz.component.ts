@@ -27,8 +27,8 @@ selectedTheme: Theme = new Theme();
 
   selected(){
     console.log(this.selectedTheme.id);
-    this.quizzSrv.getQuestionRandomByTheme((this.selectedTheme.id)).subscribe((questions:Question[]) => {
-      this.questionsByTheme= questions;
+    this.quizzSrv.getQuestionByTheme((this.selectedTheme.id)).subscribe((theme:Theme) => {
+      this.questionsByTheme= theme.questions;
     })
   }
 
