@@ -1,5 +1,7 @@
+import { CompteServiceService } from "src/app/services/compte-service.service";
 import { Component, OnInit } from "@angular/core";
 import { Question } from "src/app/model/question";
+import { Compte } from "src/app/model/compte";
 
 @Component({
 	selector: "app-quizz",
@@ -16,11 +18,17 @@ export class QuizzComponent implements OnInit {
 	boutonSuite: boolean = true;
 	points!: number;
 	score!: number;
+	compte!: Compte;
 
-	constructor() {}
+	constructor(private compteSrv: CompteServiceService) {}
 
 	ngOnInit(): void {
 		this.showQuestion = true;
+
+		//recup compte si connexion
+		if (sessionStorage.getItem("compte")) {
+			this.compte = JSON.parse(sessionStorage.getItem("compte")!) as Compte;
+		}
 	}
 
 	loadQuestionsQuizz(questions: Question[]) {
@@ -50,5 +58,28 @@ export class QuizzComponent implements OnInit {
 
 	finQuizz() {
 		this.showResultats = true;
+		//si compte ds session
+		console.log(sessionStorage.getItem("compte"));
+		if (sessionStorage.getItem("compte")) {
+			let compteSession: Compte = JSON.parse(sessionStorage.getItem("compte")!) as Compte;
+			console.log(compteSession);
+			console.log(compteSession.statistique.scoreMax);
+
+			let scoreMaxCompteSession: number = compteSession.statistique.scoreMax;
+			if (scoreMaxCompteSession < this.score) {
+				//save nouveau score
+				this.compte.statistique.scoreMax = this.score;
+			}
+
+			let scoreMoyenCompteSession: number = compteSession.statistique.scoreMoyen;
+			if (scoreMoyenCompteSession == 0) {
+				this.compte.statistique.scoreMoyen = this.score;
+			} else {
+				this.compte.statistique.scoreMoyen = (scoreMoyenCompteSession + this.score) / 2;
+			}
+			this.compteSrv.modification(this.compte).subscribe(() => {
+				sessionStorage.setItem("compte", JSON.stringify(this.compte));
+			});
+		}
 	}
 }
