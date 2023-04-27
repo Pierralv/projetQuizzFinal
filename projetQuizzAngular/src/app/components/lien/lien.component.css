@@ -1,24 +1,25 @@
 #lien{
   color: azure;
   text-decoration: none;
-  display: inline-block;
+  display: inline;
   position: relative;
 }
 
 #lien::after {
   content: '';
+  display: block;
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
+  transform: scale(0);
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: azure;
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 #lien:hover::after {
-  transform: scaleX(1);
+  transform: scale(1);
   transform-origin: bottom left;
 }

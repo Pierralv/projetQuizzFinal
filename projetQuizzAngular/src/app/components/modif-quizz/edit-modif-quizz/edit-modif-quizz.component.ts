@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Question } from 'src/app/model/question';
-import { Reponse } from 'src/app/model/reponse';
 import { Theme } from 'src/app/model/theme';
 import { QuizzService } from 'src/app/services/quizz.service';
 
@@ -15,10 +13,12 @@ export class EditModifQuizzComponent implements OnInit {
   constructor(private quizzSrv: QuizzService, private router: Router) {}
 
   form: FormGroup;
-  bonneReponse:boolean = false;
+  bonneReponseA:boolean = true;
+  bonneReponseB:boolean = false;
+  bonneReponseC:boolean = false;
+  bonneReponseD:boolean = false;
   themes: Theme[] = [];
   selectedTheme: Theme = new Theme();
-  resultat:boolean;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -39,16 +39,32 @@ export class EditModifQuizzComponent implements OnInit {
     });
   }
 
-  changeReponse(ev : Event) {
+  changeReponseA(ev : Event) {
+      this.bonneReponseA = true
+      this.bonneReponseB = false
+      this.bonneReponseC = false
+      this.bonneReponseD = false
+  }
 
-    let result = (ev.target as HTMLInputElement).value
-    console.log(this.bonneReponse);
-    if(result=='true'){
-      this.bonneReponse = false
-    } else {
-      this.bonneReponse = true
-    }
-    console.log(this.bonneReponse)
+  changeReponseB(ev : Event) {
+      this.bonneReponseB = true
+      this.bonneReponseA = false
+      this.bonneReponseC = false
+      this.bonneReponseD = false
+  }
+
+  changeReponseC(ev : Event) {
+      this.bonneReponseB = false
+      this.bonneReponseA = false
+      this.bonneReponseC = true
+      this.bonneReponseD = false
+  }
+
+  changeReponseD(ev : Event) {
+    this.bonneReponseB = false
+    this.bonneReponseA = false
+    this.bonneReponseC = false
+    this.bonneReponseD = true
   }
 
   submit() {
@@ -56,28 +72,25 @@ export class EditModifQuizzComponent implements OnInit {
       enonceQuestion: this.form.get('enonceQuestion').value,
       theme: this.form.get('theme').value,
     };
-    console.log(questionJson);
     this.quizzSrv.createQuestion(questionJson).subscribe((resp) => {
-      console.log(resp);
-
       let reponseAJson = {
         enonceReponse: this.form.get('reponseA').value,
-        bonneReponse: false,
+        bonneReponse: this.bonneReponseA,
         question: resp
       };
       let reponseBJson = {
         enonceReponse: this.form.get('reponseB').value,
-        bonneReponse: false,
+        bonneReponse: this.bonneReponseB,
         question: resp
       };
       let reponseCJson = {
         enonceReponse: this.form.get('reponseC').value,
-        bonneReponse: true,
+        bonneReponse: this.bonneReponseC,
         question: resp
       };
       let reponseDJson = {
         enonceReponse: this.form.get('reponseD').value,
-        bonneReponse: false,
+        bonneReponse: this.bonneReponseD,
         question: resp
       };
       this.quizzSrv.createReponse(reponseAJson).subscribe(() => {

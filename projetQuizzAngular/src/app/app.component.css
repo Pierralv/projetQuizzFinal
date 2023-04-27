@@ -1,0 +1,20 @@
+
+html, body{
+  height:100%;
+}
+
+#main{
+  min-height:100%;
+  margin-bottom:-142px;
+}
+
+#main:after{
+  content:'';
+  display:block;
+  height:142px;
+}
+
+#footer{
+  height:142px;
+  background-color: rgb(58, 78, 95);
+}
