@@ -49,9 +49,6 @@ export class QuizzComponent implements OnInit {
 	}
 
 	finQuizz() {
-		// switch(this.questionsQuizz.length) {
-		//   case
-		// }
-		// this.showResultats = true;
+		this.showResultats = true;
 	}
 }
