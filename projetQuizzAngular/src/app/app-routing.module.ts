@@ -14,6 +14,7 @@ import { ModifQuizzComponent } from "./components/modif-quizz/modif-quizz.compon
 import { EditModifQuizzComponent } from "./components/modif-quizz/edit-modif-quizz/edit-modif-quizz.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { ResultatsComponent } from "./components/quizz/resultats/resultats.component";
+import { AdminComponent } from "./components/admin/admin.component";
 
 const routes: Routes = [
 	{ path: "home", component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
 		component: EditModifQuizzComponent,
 		canActivate: [AdminGuardService],
 	},
+  { path: "admin", component: AdminComponent, canActivate: [AdminGuardService] },
 	{ path: "**", component: NotFoundComponent },
 ];
 
