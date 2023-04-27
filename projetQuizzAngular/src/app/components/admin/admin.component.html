@@ -1,9 +1,16 @@
-<div class="row border-bottom mt-4 align-items-center">
+<div class="row border-bottom mt-4 align-items-center mb-3">
   <div class="col-6 text-center">
-    <h2>Bienvenue Admin</h2>
+    <h2>Bienvenue Boss</h2>
   </div>
   <div class="col-6 text-center">
     <img id="avatar" [src]="avatar" alt="Avatar" />
   </div>
 </div>
-<hr />
+<div class="text-center" id="slogan">
+  Vous êtes le maître du jeu, à vous de créer l'histoire !
+</div>
+<div class="text-center mt-5 mb-5">
+  <a routerLink="/modifQuizz" routerLinkActive="active" id="btn-modif"
+    >Modifier le quizz
+  </a>
+</div>
