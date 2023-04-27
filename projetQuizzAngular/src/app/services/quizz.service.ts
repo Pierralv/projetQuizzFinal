@@ -47,6 +47,10 @@ export class QuizzService {
 		return this.http.post(questionRest, question);
 	}
 
+  public deleteQuestion(id:number): Observable<void>{
+    return this.http.delete<void>(`${questionRest}/${id}`)
+  }
+
 	// public update(question: Question): Observable<Question> {
 	// 	return this.http.put<Question>(
 	// 		`${questionRest}/${question.id}`,

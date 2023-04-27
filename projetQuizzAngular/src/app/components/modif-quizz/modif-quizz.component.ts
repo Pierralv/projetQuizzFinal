@@ -14,6 +14,7 @@ constructor(private quizzSrv: QuizzService){}
 themes:Theme[] = [];
 questionsByTheme: Question[] = [];
 selectedTheme: Theme = new Theme();
+showTable: Boolean= false;
 
   ngOnInit(): void {
     this.loadThemes();
@@ -29,7 +30,15 @@ selectedTheme: Theme = new Theme();
     console.log(this.selectedTheme.id);
     this.quizzSrv.getQuestionByTheme((this.selectedTheme.id)).subscribe((theme:Theme) => {
       this.questionsByTheme= theme.questions;
+      this.showTable= true;
     })
   }
+
+  supprimer(id:number){
+    this.quizzSrv.deleteQuestion(id).subscribe(()=>{
+      this.selected();
+    })
+  }
+
 
 }
