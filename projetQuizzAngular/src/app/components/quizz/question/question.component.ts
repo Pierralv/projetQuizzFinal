@@ -30,7 +30,6 @@ export class QuestionComponent {
 
 	getValue(ev: Event) {
 		this.value = (ev.target as HTMLInputElement).value;
-		console.log(this.value);
 	}
 
 	voirResults() {
@@ -39,7 +38,6 @@ export class QuestionComponent {
 		this.question.reponses.forEach((rep) => {
 			if (rep.bonneReponse) this.bonneReponse = rep;
 		});
-		console.log(this.bonneReponse);
 		if (this.value == "true") {
 			this.points++;
 		} else {

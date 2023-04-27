@@ -43,9 +43,9 @@ export class QuizzComponent implements OnInit {
 
 	traitementPts(pointsQuest: number) {
 		this.points = pointsQuest;
-		console.log(this.points);
+		// console.log(this.points);
 		this.score = (this.points / this.nbQuestionQuizz) * 10;
-		console.log(this.score);
+		// console.log(this.score);
 	}
 
 	finQuizz() {

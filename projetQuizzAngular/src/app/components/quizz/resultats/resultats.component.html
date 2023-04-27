@@ -2,6 +2,21 @@
 	<p>Vous êtes arrivés à bout du quizz !!</p>
 	<p>Voici votre score : {{ score }}/10</p>
 
-	<a routerLink="/newQuizz" class="btn btn-outline-dark">rejouer</a>
-	<a routerLink="/home" class="btn btn-outline-primary">retour page accueil</a>
+	<a
+		*ngIf="newLien"
+		routerLink="/newQuizz"
+		class="btn btn-outline-primary"
+		routerLinkActive="active"
+		(click)="newQuizz()"
+		>rejouer</a
+	>
+	<a
+		*ngIf="!newLien"
+		routerLink="/quizz"
+		class="btn btn-outline-primary"
+		routerLinkActive="active"
+		(click)="newQuizz()"
+		>rejouer</a
+	>
+	<a routerLink="/home" class="btn btn-outline-dark">retour page accueil</a>
 </div>
