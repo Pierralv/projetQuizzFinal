@@ -51,20 +51,14 @@ export class QuizzComponent implements OnInit {
 
 	traitementPts(pointsQuest: number) {
 		this.points = pointsQuest;
-		// console.log(this.points);
 		this.score = (this.points / this.nbQuestionQuizz) * 10;
-		// console.log(this.score);
 	}
 
 	finQuizz() {
 		this.showResultats = true;
 		//si compte ds session
-		console.log(sessionStorage.getItem("compte"));
 		if (sessionStorage.getItem("compte")) {
 			let compteSession: Compte = JSON.parse(sessionStorage.getItem("compte")!) as Compte;
-			console.log(compteSession);
-			console.log(compteSession.statistique.scoreMax);
-
 			let scoreMaxCompteSession: number = compteSession.statistique.scoreMax;
 			if (scoreMaxCompteSession < this.score) {
 				//save nouveau score

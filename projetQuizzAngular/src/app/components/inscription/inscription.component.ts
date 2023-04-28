@@ -78,7 +78,6 @@ export class InscriptionComponent implements OnInit {
 
   show(){
     this.showPassword = !this.showPassword;
-    console.log(this.showPassword);
   }
 
   traitementAvatarInscription(avatar: string) {

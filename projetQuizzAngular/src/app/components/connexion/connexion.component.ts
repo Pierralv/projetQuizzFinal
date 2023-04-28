@@ -31,7 +31,6 @@ export class ConnexionComponent {
           }
         },
         error: (error: any) => {
-          console.debug(error);
           this.showError = true;
         },
       });
@@ -40,8 +39,6 @@ export class ConnexionComponent {
 
   show(){
     this.showPassword = !this.showPassword;
-    console.log(this.showPassword);
-
   }
 
 }

@@ -20,7 +20,6 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCompte();
-    console.log(this.compte);
   }
 
   initCompte() {

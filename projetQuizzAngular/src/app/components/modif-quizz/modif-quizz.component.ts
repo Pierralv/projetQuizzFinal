@@ -27,7 +27,6 @@ showTable: Boolean= false;
   }
 
   selected(){
-    console.log(this.selectedTheme.id);
     this.quizzSrv.getQuestionByTheme((this.selectedTheme.id)).subscribe((theme:Theme) => {
       this.questionsByTheme= theme.questions;
       this.showTable= true;

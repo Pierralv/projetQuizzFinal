@@ -16,6 +16,10 @@
   font-size: 30px;
 }
 
+#btn-modif:hover{
+  background-color: rgb(0, 120, 189);
+}
+
 #slogan{
   color: rgb(29, 125, 180) ;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

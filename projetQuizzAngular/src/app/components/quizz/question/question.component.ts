@@ -45,7 +45,6 @@ export class QuestionComponent {
 				this.points = this.points - 0.5;
 			}
 		}
-		console.log(this.points);
 		this.sendPtsEven.emit(this.points);
 	}
 }
