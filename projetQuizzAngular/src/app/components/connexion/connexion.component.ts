@@ -25,7 +25,7 @@ export class ConnexionComponent {
           sessionStorage.setItem('token','Basic ' +window.btoa(this.pseudo + ':'+ this.motDePasse));
           sessionStorage.setItem('compte', JSON.stringify(infos));
           if(infos.role == Role.ROLE_UTILISATEUR){
-            this.router.navigateByUrl('/profil');
+            this.router.navigateByUrl('/home');
           } else {
             this.router.navigateByUrl('/admin');
           }
