@@ -25,7 +25,7 @@ export class InscriptionComponent implements OnInit {
       compteGroup: new FormGroup({
         pseudo: new FormControl('', Validators.required,this.pseudoDispo(this.compteSrv)),
         mdpGroup: new FormGroup({
-          mdp: new FormControl('', Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/)),
+          mdp: new FormControl('', [Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/), Validators.required]),
           mdpConfirm: new FormControl(''),
         },this.mdpEgaux),
       },
