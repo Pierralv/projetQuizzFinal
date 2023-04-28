@@ -45,11 +45,15 @@
               [type]="showPassword ? 'text' : 'password'"
             />
             <div
-              *ngIf="form.get('compteGroup.mdpGroup.mdp')?.dirty"
+              *ngIf="
+                form.get('compteGroup.mdpGroup.mdp')?.dirty &&
+                form.get('compteGroup.mdpGroup.mdp')?.invalid
+              "
               id="messageErreur"
             >
               Le mot de passe doit comporter au moins:
               <ul>
+                <li>8 caractères</li>
                 <li>Une minuscule</li>
                 <li>Une majuscule</li>
                 <li>Un chiffre</li>
