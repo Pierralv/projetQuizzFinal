@@ -71,7 +71,7 @@ export class InscriptionComponent implements OnInit {
     this.messageCreation = true;
     setTimeout(() => {
       this.compteSrv.inscription(compteJson).subscribe((compte) => {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/connexion');
       });
     },1000);
   }
